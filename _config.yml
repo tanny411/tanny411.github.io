@@ -1,4 +1,4 @@
-layout: sidebar
+layout: stacked
 style: light
 
 plugins:
@@ -17,11 +17,22 @@ defaults:
       layout: "post"
 
 projects:
+  limit: 6
+  give_list: true
+  repo_list:
+    - Machine-Learning-Projects
+    - Competitive-Programming
+    - GroupProject
+    - SafeKids
+    - Secure_and_private_AI
+    - Udacity-CVND
+    - JavaGame2D
+    - BalloonPopGame
+  # following works when give_list is false 
   sort_by: pushed
   # sort_by options:
   #   - pushed
   #   - stars
-  limit: 9
   exclude:
     archived: false
     forks: true
