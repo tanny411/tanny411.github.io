@@ -55,7 +55,11 @@ social_media:
   # unsplash: your_username
   # vk: your_username
   # website: http://your_website_url
-  youtube: channel/UCbT2Y0Kcy882q47P_Nl0vIA
+  youtube: UCbT2Y0Kcy882q47P_Nl0vIA
+  codeforces: tanny411
+  lightoj: 34282
+  orcid: 0000-0001-6559-4493
+  scholar: I9-4uB8AAAAJ
 
 topics:
   - name: Data Analysis and Machine Learning
