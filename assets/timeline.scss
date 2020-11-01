@@ -1,0 +1,91 @@
+---
+---
+// ----------------  THE BASICS
+
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:400,700');
+
+.timeline{
+	font-size: 14px;
+	line-height: 1.5;
+	max-width: 1024px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+// ----------------  THE FONTS
+
+.timeline{
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Oswald', sans-serif;
+	}
+	h1 {
+		font-size: 1.5rem;
+		margin-bottom: .5em;
+	}
+	p {
+		font-family: 'Roboto', sans-serif;
+		font-size: .8rem;
+	}
+} 
+
+// ----------------  THE FONTS
+
+$border-color: rgba(black, .3);
+
+.timeline-item {
+	padding: 3em 2em 2em;
+	position: relative;
+	color: rgba(black, .7);
+	border-left: 2px solid $border-color;
+	
+	p {
+		font-size: 1rem;
+	}
+	
+	&::before {
+		content: attr(date-is);
+		position: absolute;
+		left: 2em;
+		font-weight: bold;
+		top: 1em;
+		display: block;
+		font-family: 'Roboto', sans-serif;
+		font-weight: 700;
+		font-size: .785rem;
+	}
+
+	&::after {
+		width: 15px;
+		height: 15px;
+		display: block;
+		top: 1em;
+		position: absolute;
+		left: -12px;
+		border-radius: 15px;
+		content: '';
+		border: 3px solid $border-color;
+		background: rgb(241, 241, 241);
+	}
+
+	&:last-child {
+		border-image: linear-gradient(
+			to bottom,
+			$border-color 60%,
+			rgba($border-color, 0)) 1 100%
+		;
+	}
+
+	ul{
+		margin-left: 20px;
+	}
+}
+
+.timeline-item-reverse {
+	border-left: 0px;
+	border-right: 2px solid $border-color;
+	text-align: right;
+
+	&::before {
+		text-align: right;
+	}
+}

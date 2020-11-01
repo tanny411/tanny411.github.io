@@ -4,7 +4,7 @@
   {% assign metadata_styles = 'd-flex flex-items-center mb-3' %}
 {% endif %}
 
-<img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 150px;">
+<img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 200px;">
 <h1 class="{% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">{% if user.name %}{{ user.name }}{% else %}{{ user.login }}{% endif %}</h1>
 <p class="mb-3 f4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
   {{ user.bio }}
@@ -28,6 +28,28 @@
         </a>
       </div>
     {% endif %}
+
+    <div class="{{ metadata_styles }}">
+      {% octicon file height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:resume %}
+      <a href="https://drive.google.com/file/d/1S1qLvUt3rFkTv6h26DFb4QzKnffV9Qeq/view?usp=sharing" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+        Resume
+      </a>
+    </div>
+
+    <div class="{{ metadata_styles }}">
+      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:credentials %}
+      <a href="/credentials" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+        Credentials
+      </a>
+    </div>
+
+    <div class="{{ metadata_styles }}">
+      {% octicon book height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:blog %}
+      <a href="#blog" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+        Blog
+      </a>
+    </div>
+
     {% if user.location %}
       <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
         {% octicon location height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Location %}
@@ -50,5 +72,6 @@
     {% if user.hireable %}
       <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
     {% endif %}
+
   </div>
 {% endif %}
