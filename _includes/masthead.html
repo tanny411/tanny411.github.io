@@ -45,7 +45,7 @@
 
     <div class="{{ metadata_styles }}">
       {% octicon book height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:blog %}
-      <a href="#blog" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+      <a href="{{ site.baseurl }}/#blog" {% if site.style == 'dark' %}class="text-white"{% endif %}>
         Blog
       </a>
     </div>
