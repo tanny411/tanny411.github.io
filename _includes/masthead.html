@@ -50,6 +50,13 @@
       </a>
     </div>
 
+    <div class="{{ metadata_styles }}">
+      {% octicon rss height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:rss %}
+      <a href="{{ site.baseurl }}/feed.xml" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+        RSS
+      </a>
+    </div>
+
     {% if user.location %}
       <div class="{{ metadata_styles }} {% if site.style == 'dark' %}text-white{% endif %}">
         {% octicon location height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Location %}

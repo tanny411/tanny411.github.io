@@ -5,6 +5,11 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
+  - jekyll-feed
+
+title: Aisha's Website
+description: Welcome to my brain
+author: Aisha Khatun
 
 permalink: /:year/:month/:day/:title/
 
@@ -23,11 +28,6 @@ projects:
     - Machine-Learning-Projects
     - Competitive-Programming
     - GroupProject
-    - SafeKids
-    - Secure_and_private_AI
-    - Udacity-CVND
-    - JavaGame2D
-    - BalloonPopGame
   # following works when give_list is false 
   sort_by: pushed
   # sort_by options:
@@ -64,11 +64,11 @@ social_media:
 topics:
   - name: Data Analysis and Machine Learning
     web_url: https://en.wikipedia.org/wiki/Data_science
-    image_url: https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSrBDLeiQVj-UTdcPWE66A2pY4Zw_IAUCmhcQ&usqp=CAU
+    image_url: ./assets/images/ds.png
       
   - name: Natural Language Processing
     web_url: https://github.com/topics/nlp
-    image_url: https://lh3.googleusercontent.com/YcZHK7WVFMjqX_B_NNAHyP_9mYYdlmDP0Q5AhOlrCJyqlPoB-C4bMG936BgD33-tanjf=s85
+    image_url: ./assets/images/nlp.jpg
 
   - name: Full Stack Web Development
     web_url: https://www.mongodb.com/mern-stack
