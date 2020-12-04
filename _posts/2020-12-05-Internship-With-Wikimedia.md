@@ -5,30 +5,25 @@ published: true
 
 It's been just a while since my internship with Wikimedia started in Outreachy and I am already learning a lot! In this blog, I will be sharing what my project is all about and a couple of things I have learned or re-learned in these days and are some common technologies that many other open-source networks use as well.
 
-This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for students looking for internship and want to familiarize with what open source encompasses, or simply people loooking to join the open source fun! I listed those in `Techs`. Feel free to only look at these topics. Others can look at the entire thing to familiarize with wikimedia in general, or more specific details about the project I will be working on.
-
-## Techs
-- IRS
-- Git, GitHub and Gerrit
-- Docker, Vagrant
+This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for students looking for internship and want to familiarize with what open source encompasses, or simply people loooking to join the open source fun!
 
 ## Contents:
-1. Project Description
+1. [Project Description](#project-description)
     - Wikimedia
     - Wikipedia
     - Abstract Wikipedia
     - Wikilambda
     - Wikidata
-2. What am I working on?
-3. Some initial set-up to join wikimedia
-    - Wikitech, Gerrit, Phabricator Account, IRS
-    - More about Git and Gerrit
-    - Docker set-up
+2. [What am I working on?](#what-am-i-working-on)
+3. [Initial set-up](#initial-set-up)
+    - Accounts
+    - Gerrit, Docker
+    - IRS
     - Mailing lists
-4. Learning resources
+4. [Onboarding and learning resources](#onboarding-and-learning-resources)
     - Wikimedia
     - Guidelines
-5. Progress
+5.[ Progress](#progress)
 
 ## Project Description
 In short, the beginning of a huge change. We all know about Wikipedia and how it has been helping miilions of people around the world get access to free and open knowledge. And more importantly how anyone around the world can contribute to this endeavour through adding, correcting, or updating information in the wikis. But did you know Wikipedia is a project under the [Wikimedia](https://www.wikimedia.org/) foundation?
@@ -98,3 +93,51 @@ Tasks:
 - Use open-source packeages to find code similarity among the functions and identify redundant ones.
 - Modularize code segments, both programatically and manually.
 - Publish methodology and reoports to be included as Abstract Wikiedia subage.
+
+Find me here:
+- https://www.outreachy.org/alums
+- https://www.mediawiki.org/wiki/Outreachy/Round_21#Recommended_steps_for_accepted_interns
+- 
+
+## Initial set-up
+To set up my existence in Wikimedia I had to follow a few steps. This section is not for anyone to follow but a mere report of what I have been doing. One of the best things I find in wikimedia is the organization and instructions. There are instructions for _everything_. Anything I can conceieveably need to start contributing to wikimedia, they have a wiki of instructions and troubleshooting for it. This just makes life so much more easier.
+
+#### Accounts 
+
+First is to create a bunch of accounts. This seemed a little confusing at first, but various domains on wikimedia require separate account creation and thus separate user pages. User pages are those that end in `User:your_name`. 
+
+- Creating a user page in meta wiki is the best idea. This user page gets displayed in other domains where there isn't a user page in your name. For exmaple if you create one in `meta.wikimedia.org`, it will show up in `en.wikipedia.org`. I did create one in mediawiki separately to post updates about the internship. My user pages are:
+    - https://meta.wikimedia.org/wiki/User:Aisha_Khatun
+    - https://www.mediawiki.org/wiki/User:Aisha_Khatun
+    - https://en.wikipedia.org/wiki/User:Aisha_Khatun (auto)
+- Also for development purposes I created a [wikitech account](https://wikitech.wikimedia.org/wiki/Special:CreateAccount), aka Wikimedia developer account or LDAP account. This account is also connected to Gerrit. It is recommended to set up 2 factor authentication here. The provided scratch codes need to be securely saved, those will be required if you loose/can't access your phone to login.
+- Then I created a `phabricator account`, and connected it to both my wikimedia and wikitech accounts. Guidelines [here](https://www.mediawiki.org/wiki/Phabricator/Help#Creating_your_account). We had to set up 2 factor here as well. But phabricator does not provide any sort of scratch codes, so loosing phone is going to be a bummer. What you do is set a [committed identity](https://meta.wikimedia.org/wiki/Template:User_committed_identity) in your wiki user page so that if you get locked out of phabricator you can be recognized through your committed identity hash.
+- Login to gerrit using your wikitech username and password, and there's your account.
+
+#### Gerrit and Docker
+
+All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, expecially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the [instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial) to set up and use gerrit, set up docker and run the unit tests.
+
+#### IRC
+[IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can conect to various servers and channels within those servers as you wish. You create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up.
+
+We used the freenode server (chat.freenode.net:6697). See [freenode](chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. This was more manageable as I created a account and simply set password so no one can impersonate me.
+
+#### Mailing lists
+Wikimedia has a LOT of mailing lists. I subscribed to some of those which concern my work over there. Like abstract-wikimedia, research and wikitech. The list of all mailing lists are [here](https://lists.wikimedia.org/). Anyone can join these lists to be updated on issues of their interest. I can basically get e-mail updates and also send information to everyone in the list through it.
+
+## Onboarding and learning resources
+
+I have divided these materials into things about wikimedia and things to know to join wikimedia.
+
+#### About wikimedia:
+- [Wikipedia @ 20](https://wikipedia20.pubpub.org/)
+- [Movement Strategy](https://upload.wikimedia.org/wikipedia/commons/5/5b/Wikimedia_2030_Movement_Strategy_Recommendations_in_English.pdf)
+- [Abstract Wikipedia](https://arxiv.org/abs/2004.04733)
+- [WikiGnome](https://en.wikipedia.org/wiki/Wikipedia:WikiGnome). This is humorous.
+
+#### On-boarding:
+- [Values](https://meta.wikimedia.org/wiki/Wikimedia_Foundation_Values)
+- [Guiding Principles](https://meta.wikimedia.org/wiki/Wikimedia_Foundation_Guiding_Principles)
+- [Wikimedia Engineering Architecture Principles](https://www.mediawiki.org/wiki/Wikimedia_Engineering_Architecture_Principles)
+- Debugging Teams: Better Productivity through Collaboration
