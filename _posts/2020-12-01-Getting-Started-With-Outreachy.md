@@ -3,7 +3,11 @@ title: "Getting started with Outreachy"
 published: true
 ---
 
-Hi, I am Aisha Khatun. I am a machine learning and data science enthusiast and thrilled to have been selected as an [Outreachy intern](https://www.outreachy.org/alums/)! In this blog, I want to share my journey into getting accepted as an intern in Outreachy where I will be working with Wikimedia foundation on the Wikipedia abstract project. I will share more about my work in a later post, but for now, I wanted to highlight what this internship entails and how you can get it too!
+Hi, I am Aisha Khatun. I am a machine learning and data science enthusiast and thrilled to have been selected as an [Outreachy intern](https://www.outreachy.org/alums/) for the December 2020 cohort! 
+
+This time 1,952 initial came in, 650 applicants were approved to participate in the contribution period. There were 83 internship projects to choose from! 255 applicants recorded making a contribution and 54 applicants were accepted as Outreachy interns. I was one of them!
+
+In this blog, I want to share my journey into getting accepted as an intern in Outreachy where I will be working with Wikimedia foundation on the Wikipedia abstract project. I will share more about my work in a later post, but for now, I wanted to highlight what this internship entails and how you can get it too!
 
 ## Contents
 1. [What is Outreachy?](#what-is-outreachy)
@@ -38,6 +42,7 @@ I should admit there is quite some competition here, so getting your hands dirty
 * Take a look at [past projects](https://www.outreachy.org/past-projects/). You will get an idea of what kind of stuff is out there. Some communities/foundations bring projects every season (e.g Wikimedia, Mozilla, etc). You can match your skills with what is required for those projects and try to put in some contributions. This way you can get acquainted with the community as well (from where you get your future mentors). Note that this step is completely optional, and you can practice open-source however you wish. You can follow this if you're not sure where to start.
 * Use languages you have intermediate skills at. Take yourself there.
 * You could do a little VCS (e.g Git and GitHub) revision or learn some basics if you don't already know. Nothing fancy, basics will do, just so you know your way around a project's repo.
+* If you haven't participated in open source before, it is recommended to read the book [Forge Your Future with Open Source](https://pragprog.com/book/vbopens/forge-your-future-with-open-source) and follow these: https://lab.github.com/, https://up-for-grabs.net/
 * Once you've selected a project to work on, look at how to set it up. You should find some good docs on how to start as a beginner. To start slow you can contribute to the documentation if possible, otherwise, you can find labels for issues in their repositories (e.g in Github) for beginners like `good-first-issue`. 
 * DO NOT be intimidated by the size of the project or the number of people. Focus on the small tasks at hand, talk to people in the community if you want to know more or are stuck. People are more than happy to help, just keep your calm and be nice and polite. Don't expect immediate answers, you may ask again if it is taking too long (several days).
 
@@ -72,6 +77,12 @@ Hurray! The internship! Your hard work pays off and you get selected for one of 
 At this point, you should go through the [intership guide](https://www.outreachy.org/docs/internship/) on the outreachy website and start planning your work. I found it best to create a separate calendar in google calender and create events for the biweekly blogs and community chats. I set it up so that I get email notifications 5 days before and on the day of the event itself. I will be setting up other tasks accordingly. Plus, I made a google doc to keep track of all outreachy things I need to remember or review, todos, so on. 
 
 The best part about Outreachy, I think, is that it builds experience, it's paid - much like a full-time job. BUT, you get flexible hours, super nice mentors and there is no interview, resume screening, broken coding interviews, and whatnot. Sadly it lasts only 3 months, but the good news is it's open-source! So if you like (and it is recommended), you can continue to keep in touch with the community and contribute to your project. Based on your performance, your mentor and others involved in the project may want you as a mentor next year! But most important of all - keep you open-source alive! 
+
+Some tips to work remote:
+- Fix your 8 hours a day (for 40h work week) and stick to it.
+- People in your team (and your mentor) maybe from a different time zone. Keep note of when they are avaialable usually.
+- Try to adjust your work time to overlap as much as you can with your teammates or mentor.
+- Communicate your progress, ask whenever stuck. And be honest and excited about your work. You chose the project afterall!
 
 ## Pro-tips
 In case you are hell-bent on getting the internship, you may want to know some things more. 
