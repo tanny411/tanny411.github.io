@@ -5,7 +5,7 @@ published: true
 
 Hi, I am Aisha Khatun. I am a machine learning and data science enthusiast and thrilled to have been selected as an [Outreachy intern](https://www.outreachy.org/alums/) for the December 2020 cohort! 
 
-This time 1,952 initial came in, 650 applicants were approved to participate in the contribution period. There were 83 internship projects to choose from! 255 applicants recorded making a contribution and 54 applicants were accepted as Outreachy interns. I was one of them!
+This time 1,952 initial came in, 650 applicants were approved to participate in the contribution period. There were 83 internship projects to choose from! 255 applicants contributed to various projects and 54 applicants were accepted as Outreachy interns. I was one of them!
 
 In this blog, I want to share my journey into getting accepted as an intern in Outreachy where I will be working with Wikimedia foundation on the Wikipedia abstract project. I will share more about my work in a later post, but for now, I wanted to highlight what this internship entails and how you can get it too!
 
@@ -74,15 +74,15 @@ After you've made some contributions, it's time to submit your final application
 ## The Internship
 Hurray! The internship! Your hard work pays off and you get selected for one of the projects you worked on. Now what? You work with your fav community for 3 months as a paid intern. You get to keep your mentors!
 
-At this point, you should go through the [intership guide](https://www.outreachy.org/docs/internship/) on the outreachy website and start planning your work. I found it best to create a separate calendar in google calender and create events for the biweekly blogs and community chats. I set it up so that I get email notifications 5 days before and on the day of the event itself. I will be setting up other tasks accordingly. Plus, I made a google doc to keep track of all outreachy things I need to remember or review, todos, so on. 
+At this point, you should go through the [internship guide](https://www.outreachy.org/docs/internship/) on the outreachy website and start planning your work. I found it best to create a separate calendar in google calender and create events for the biweekly blogs and community chats. I set it up so that I get email notifications 5 days before and on the day of the event itself. I will be setting up other tasks accordingly. Plus, I made a google doc to keep track of all outreachy things I need to remember or review, todo, so on. 
 
 The best part about Outreachy, I think, is that it builds experience, it's paid - much like a full-time job. BUT, you get flexible hours, super nice mentors and there is no interview, resume screening, broken coding interviews, and whatnot. Sadly it lasts only 3 months, but the good news is it's open-source! So if you like (and it is recommended), you can continue to keep in touch with the community and contribute to your project. Based on your performance, your mentor and others involved in the project may want you as a mentor next year! But most important of all - keep you open-source alive! 
 
 Some tips to work remote:
 - Fix your 8 hours a day (for 40h work week) and stick to it.
-- People in your team (and your mentor) maybe from a different time zone. Keep note of when they are avaialable usually.
+- People in your team (and your mentor) maybe from a different time zone. Keep note of when they are available usually.
 - Try to adjust your work time to overlap as much as you can with your teammates or mentor.
-- Communicate your progress, ask whenever stuck. And be honest and excited about your work. You chose the project afterall!
+- Communicate your progress, ask whenever stuck. And be honest and excited about your work. You chose the project after-all!
 
 ## Pro-tips
 In case you are hell-bent on getting the internship, you may want to know some things more. 
@@ -91,20 +91,20 @@ In case you are hell-bent on getting the internship, you may want to know some t
 Outreachy gives us the option to choose how we want to be paid (as of 2020).
 - USA - PayPal or get a check via post.
 - Outside USA - Wire transfer to local bank in local currency
-- Outside USA - Check in local currency via post - Not recommended, last resot option.
+- Outside USA - Check in local currency via post - Not recommended, last resort option.
 
-For receiving payment outside USA clearly wire-transfer is a better option. The latter option takes more time and is too involved. We are required to give our payment info within 10 days of the start of the internship, otherwise the payment is delayed. If students take the internship, most often than not you may not have a bank account. This procedure may involve some time, so you may want to set one up, especially your **own** account. Someone else's account is fine too but you will have to fill an extra form and stuff. If you are going to have a bank account anyways, it may as well be now.
+For receiving payment outside USA clearly wire-transfer is a better option. The latter option takes more time and is too involved. We are required to give our payment info within 10 days of the start of the internship, otherwise the payment is delayed. If students take the internship, most often than not you may not have a bank account. This procedure may involve some time, so you may want to set one up, especially your **own** account. Someone elses account is fine too but you will have to fill an extra form and stuff. If you are going to have a bank account anyways, it may as well be now.
 
 If nothing else works, go for the last option. It will work, you have to be patient.
 
 ### Tax form
-Another information you will be required to provide is your tax info. Look at this section only after you've recieved instructions for it. There are 2 forms and you select one based on some criteria such as 'are you a US citizen?' etc. Those instructions will be given. I filled the W-8BEN form so I don't know about W9.
+Another information you will be required to provide is your tax info. Look at this section only after you've received instructions for it. There are 2 forms and you select one based on some criteria such as 'are you a US citizen?' etc. Those instructions will be given. I filled the W-8BEN form so I don't know about W9.
 
 #### [W-8BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf)
 Most of the fields as intuitive, so fill 'em up.
 - Make sure you follow the format given for the dates.
 - For _No. 6_, if you're from Bangladesh put your TIN number. If you don't have one, create a eTIN. Should take just 5 minutes. If you're a student, put your source of income as others.
-- Since the money is coming from the US, they will keep 30% of the income. _Unless_ your country has a treay with US to exempt or reduce tax to prevent double taxation. Know more about tax-treaty [here]([treaty](https://www.irs.gov/individuals/international-taxpayers/tax-treaties)). Check if your country has a tax treaty with US. Countries that have a tax treaty with the US can be found [here](https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z). **Bangladesh has tax-treaty with US**, see [this](https://www.treasury.gov/resource-center/tax-policy/treaties/Documents/js1959_bangladeshtreaty.pdf) for more details.
+- Since the money is coming from the US, they will keep 30% of the income. _Unless_ your country has a treaty with US to exempt or reduce tax to prevent double taxation. Know more about tax-treaty [here]([treaty](https://www.irs.gov/individuals/international-taxpayers/tax-treaties)). Check if your country has a tax treaty with US. Countries that have a tax treaty with the US can be found [here](https://www.irs.gov/businesses/international-businesses/united-states-income-tax-treaties-a-to-z). **Bangladesh has tax-treaty with US**, see [this](https://www.treasury.gov/resource-center/tax-policy/treaties/Documents/js1959_bangladeshtreaty.pdf) for more details.
 - If there is a tax treaty, fill _Part II_ to claim your tax treaty benefits. For the purposes of this internship, simply fill _No. 9_ by writing the name of your country. If you don't fill this part, you will be charged 30%. You can leave No. 10 blank.
 - Digitally sign it. Typing in your name won't be enough. You can also print -> sign -> scan -> send the scanned pdf. Simple!
 

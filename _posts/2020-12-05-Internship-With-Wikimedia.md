@@ -1,11 +1,11 @@
 ---
 title: "Internship with Wikimedia"
-published: true
+published: false
 ---
 
 It's been just a while since my internship with Wikimedia started in Outreachy and I am already learning a lot! In this blog, I will be sharing what my project is all about and a couple of things I have learned or re-learned in these days and are some common technologies that many other open-source networks use as well.
 
-This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for students looking for internship and want to familiarize with what open source encompasses, or simply people loooking to join the open source fun!
+This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for students looking for internship and want to familiarize with what open source encompasses, or simply people looking to join the open source fun!
 
 ## Contents:
 1. [Project Description](#project-description)
@@ -26,16 +26,16 @@ This post is going to be quite long as I will be sharing my progress as I go thr
 5.[ Progress](#progress)
 
 ## Project Description
-In short, the beginning of a huge change. We all know about Wikipedia and how it has been helping miilions of people around the world get access to free and open knowledge. And more importantly how anyone around the world can contribute to this endeavour through adding, correcting, or updating information in the wikis. But did you know Wikipedia is a project under the [Wikimedia](https://www.wikimedia.org/) foundation?
+In short, the beginning of a huge change. We all know about Wikipedia and how it has been helping millions of people around the world get access to free and open knowledge. And more importantly how anyone around the world can contribute to this endeavour through adding, correcting, or updating information in the wikis. But did you know Wikipedia is a project under the [Wikimedia](https://www.wikimedia.org/) foundation?
 
-#### Wikimimedia
+#### Wikimedia
 > The Wikimedia Foundation Inc. is the parent organization free-content projects, most notably Wikipedia, the award-winning online encyclopedia.
 > The mission of the Wikimedia Foundation is to empower and engage people around the world to collect and develop educational content under a free license or in the public domain, and to disseminate it effectively and globally.
 
 Other projects include Wikitionary, Wikibooks, Wikinews, MediaWiki (the software that runs it all), Wikidata, Wikimedia commons etc.
 
 #### Wikipedia
-Wikipedia is free and the largenst encyclopedia hosted in lots of different languages. The way it roughly works at the moment is 
+Wikipedia is free and the largest encyclopedia hosted in lots of different languages. The way it roughly works at the moment is 
 - The languages have contents in them independently, updating in one language does not update the same topic in other languages. The other language may not even have that page.
 - Adding content in any language requires community effort.
 - There are some templates and functions that act as helpers to create wiki pages, but their usage is independent among languages. e.g functions to calculate age, distance etc. So if one page uses a function, it is not necessarily carried over to other languages. One has to copy-paste this function to use it in their language.
@@ -43,18 +43,18 @@ Wikipedia is free and the largenst encyclopedia hosted in lots of different lang
 This is where Abstract Wikipedia comes in.
 
 #### Abstract Wikipedia
-What if we did not store information in each and every langauge separately? What if we had a notational way to store data in a 'single' place? All languages could use this data and generate wiki pages in respective languages. This can increase the richness of so-many wiki languages, maintain consistent updated information and most importantly this will pool efforts of people of all languages into one platform, making knowledge gathering and dissemination across languages a breeze.
+What if we did not store information in each and every language separately? What if we had a notational way to store data in a 'single' place? All languages could use this data and generate wiki pages in respective languages. This can increase the richness of so-many wiki languages, maintain consistent updated information and most importantly this will pool efforts of people of all languages into one platform, making knowledge gathering and dissemination across languages a breeze.
 
 This is the [Abstract Wikipedia](https://meta.wikimedia.org/wiki/Abstract_Wikipedia) project. Super cool! To know about it in more detail, see [this](https://arxiv.org/abs/2004.04733).
 > The goal is to allow everyone to contribute and read content in Abstract Wikipedia, no matter what languages they understand, and to allow people with different languages to work on and maintain the same content.
 
 #### Wikilambda
 As I briefed above, Abstract wikipedia will require a knowledge base and a way to turn that knowledge into any natural language. The knowledge base is called Wikidata and the process to make language is through Wikilambda. 
-> Wikilamdbda is a wiki of functions. For Abstract Wikipedia, we will need functions that take abstract content as the input and return natural language text as the output. Wikilambda aims at making access to functions and
+> Wikilambda is a wiki of functions. For Abstract Wikipedia, we will need functions that take abstract content as the input and return natural language text as the output. Wikilambda aims at making access to functions and
 writing and contributing new functions as simple as contributing to Wikipedia.
 
 See more details in the [paper]((https://arxiv.org/abs/2004.04733)) I talked about previously. But basically Wikilambda will store information in a structural form, indicating how the various things in a sentence are related. 
-For example, 'Sanfrancisco is the fourth-most populous city in California, after Los Angeles, San Diego and San Jose'. We can express it as a function:
+For example, 'San francisco is the fourth-most populous city in California, after Los Angeles, San Diego and San Jose'. We can express it as a function:
 ```
 Article(
     content: [
@@ -74,11 +74,11 @@ Article(
 Here each name/term is denoted by a id (like Q99) and thus can be identified across languages. Now if I were to extract this information in Bangla, I would call this function and ask for a output in Bangla. Or any other language for that matter. But how can a machine know how to generate language from words and their relations? 
 
 #### Wikidata
-Did I mention that the key-values for the ids (like Q99) are stored in wikidata? Wikidata also holds information about languages (lexicographic knowlegde) to be able to render sentences in any language from the Wikilambda functions. Wikidata is already used in Wikipedia to some extent - to create infoboxes or extract certain pieces of information - but not to generate language, yet.
+Did I mention that the key-values for the ids (like Q99) are stored in wikidata? Wikidata also holds information about languages (lexicographic knowledge) to be able to render sentences in any language from the Wikilambda functions. Wikidata is already used in Wikipedia to some extent - to create infoboxes or extract certain pieces of information - but not to generate language, yet.
 
-The way wikidata can be populated with language info is with community effort. Various communities will have to provide lexicographic knowlegde of their respective languages, ultimately creating a rich ecosystem of information flow. Notice, the amount of explicit language information required with Abstract Wikipedia will be much-much less than amount we have to build up in the current wikipedia, i.e for every topic in out language.
+The way wikidata can be populated with language info is with community effort. Various communities will have to provide lexicographic knowledge of their respective languages, ultimately creating a rich ecosystem of information flow. Notice, the amount of explicit language information required with Abstract Wikipedia will be much-much less than amount we have to build up in the current wikipedia, i.e for every topic in out language.
 
-This is not to say that a sudden breaking change will occur when Abstarct Wikipedia comes into play. Infact, Abstract Wikipedia will join in with the existing multi-lingual wikipedia and build on it enormously and swiftly.
+This is not to say that a sudden breaking change will occur when Abstract Wikipedia comes into play. In fact, Abstract Wikipedia will join in with the existing multi-lingual wikipedia and build on it enormously and swiftly.
 
 ## What am I working on?
 
@@ -90,9 +90,9 @@ Phabricator [`T263678`](https://phabricator.wikimedia.org/T263678)
 
 Tasks:
 - Determine usage of community authored functions in articles and pageviews.
-- Use open-source packeages to find code similarity among the functions and identify redundant ones.
-- Modularize code segments, both programatically and manually.
-- Publish methodology and reoports to be included as Abstract Wikiedia subage.
+- Use open-source packages to find code similarity among the functions and identify redundant ones.
+- Modularize code segments, both programmatically and manually.
+- Publish methodology and reports to be included as Abstract Wikipedia sub-page.
 
 Find me here:
 - https://www.outreachy.org/alums
@@ -100,13 +100,13 @@ Find me here:
 - 
 
 ## Initial set-up
-To set up my existence in Wikimedia I had to follow a few steps. This section is not for anyone to follow but a mere report of what I have been doing. One of the best things I find in wikimedia is the organization and instructions. There are instructions for _everything_. Anything I can conceieveably need to start contributing to wikimedia, they have a wiki of instructions and troubleshooting for it. This just makes life so much more easier.
+To set up my existence in Wikimedia I had to follow a few steps. This section is not for anyone to follow but a mere report of what I have been doing. One of the best things I find in wikimedia is the organization and instructions. There are instructions for _everything_. Anything I can conceivably need to start contributing to wikimedia, they have a wiki of instructions and troubleshooting for it. This just makes life so much more easier.
 
 #### Accounts 
 
 First is to create a bunch of accounts. This seemed a little confusing at first, but various domains on wikimedia require separate account creation and thus separate user pages. User pages are those that end in `User:your_name`. 
 
-- Creating a user page in meta wiki is the best idea. This user page gets displayed in other domains where there isn't a user page in your name. For exmaple if you create one in `meta.wikimedia.org`, it will show up in `en.wikipedia.org`. I did create one in mediawiki separately to post updates about the internship. My user pages are:
+- Creating a user page in meta wiki is the best idea. This user page gets displayed in other domains where there isn't a user page in your name. For example if you create one in `meta.wikimedia.org`, it will show up in `en.wikipedia.org`. I did create one in mediawiki separately to post updates about the internship. My user pages are:
     - https://meta.wikimedia.org/wiki/User:Aisha_Khatun
     - https://www.mediawiki.org/wiki/User:Aisha_Khatun
     - https://en.wikipedia.org/wiki/User:Aisha_Khatun (auto)
@@ -116,10 +116,10 @@ First is to create a bunch of accounts. This seemed a little confusing at first,
 
 #### Gerrit and Docker
 
-All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, expecially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the [instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial) to set up and use gerrit, set up docker and run the unit tests.
+All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, especially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the [instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial) to set up and use gerrit, set up docker and run the unit tests.
 
 #### IRC
-[IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can conect to various servers and channels within those servers as you wish. You create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up.
+[IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can connect to various servers and channels within those servers as you wish. You create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up.
 
 We used the freenode server (chat.freenode.net:6697). See [freenode](chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. This was more manageable as I created a account and simply set password so no one can impersonate me.
 
