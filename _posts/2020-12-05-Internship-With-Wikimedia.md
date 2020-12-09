@@ -1,11 +1,11 @@
 ---
 title: "Internship with Wikimedia"
-published: false
+published: true
 ---
 
 It's been just a while since my internship with Wikimedia started in Outreachy and I am already learning a lot! In this blog, I will be sharing what my project is all about and a couple of things I have learned or re-learned in these days and are some common technologies that many other open-source networks use as well.
 
-This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for students looking for internship and want to familiarize with what open source encompasses, or simply people looking to join the open source fun!
+This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for people looking for internship and want to familiarize with what open source encompasses, or simply people looking to join the open source fun!
 
 ## Contents:
 1. [Project Description](#project-description)
@@ -22,19 +22,19 @@ This post is going to be quite long as I will be sharing my progress as I go thr
     - Mailing lists
 4. [Onboarding and learning resources](#onboarding-and-learning-resources)
     - Wikimedia
-    - Guidelines
-5.[ Progress](#progress)
+    - On-boarding
+5. [ Progress](#progress)
 
 ## Project Description
 In short, the beginning of a huge change. We all know about Wikipedia and how it has been helping millions of people around the world get access to free and open knowledge. And more importantly how anyone around the world can contribute to this endeavour through adding, correcting, or updating information in the wikis. But did you know Wikipedia is a project under the [Wikimedia](https://www.wikimedia.org/) foundation?
 
-#### Wikimedia
+### Wikimedia
 > The Wikimedia Foundation Inc. is the parent organization free-content projects, most notably Wikipedia, the award-winning online encyclopedia.
 > The mission of the Wikimedia Foundation is to empower and engage people around the world to collect and develop educational content under a free license or in the public domain, and to disseminate it effectively and globally.
 
 Other projects include Wikitionary, Wikibooks, Wikinews, MediaWiki (the software that runs it all), Wikidata, Wikimedia commons etc.
 
-#### Wikipedia
+### Wikipedia
 Wikipedia is free and the largest encyclopedia hosted in lots of different languages. The way it roughly works at the moment is 
 - The languages have contents in them independently, updating in one language does not update the same topic in other languages. The other language may not even have that page.
 - Adding content in any language requires community effort.
@@ -42,13 +42,13 @@ Wikipedia is free and the largest encyclopedia hosted in lots of different langu
 
 This is where Abstract Wikipedia comes in.
 
-#### Abstract Wikipedia
+### Abstract Wikipedia
 What if we did not store information in each and every language separately? What if we had a notational way to store data in a 'single' place? All languages could use this data and generate wiki pages in respective languages. This can increase the richness of so-many wiki languages, maintain consistent updated information and most importantly this will pool efforts of people of all languages into one platform, making knowledge gathering and dissemination across languages a breeze.
 
 This is the [Abstract Wikipedia](https://meta.wikimedia.org/wiki/Abstract_Wikipedia) project. Super cool! To know about it in more detail, see [this](https://arxiv.org/abs/2004.04733).
 > The goal is to allow everyone to contribute and read content in Abstract Wikipedia, no matter what languages they understand, and to allow people with different languages to work on and maintain the same content.
 
-#### Wikilambda
+### Wikilambda
 As I briefed above, Abstract wikipedia will require a knowledge base and a way to turn that knowledge into any natural language. The knowledge base is called Wikidata and the process to make language is through Wikilambda. 
 > Wikilambda is a wiki of functions. For Abstract Wikipedia, we will need functions that take abstract content as the input and return natural language text as the output. Wikilambda aims at making access to functions and
 writing and contributing new functions as simple as contributing to Wikipedia.
@@ -73,7 +73,7 @@ Article(
 ```
 Here each name/term is denoted by a id (like Q99) and thus can be identified across languages. Now if I were to extract this information in Bangla, I would call this function and ask for a output in Bangla. Or any other language for that matter. But how can a machine know how to generate language from words and their relations? 
 
-#### Wikidata
+### Wikidata
 Did I mention that the key-values for the ids (like Q99) are stored in wikidata? Wikidata also holds information about languages (lexicographic knowledge) to be able to render sentences in any language from the Wikilambda functions. Wikidata is already used in Wikipedia to some extent - to create infoboxes or extract certain pieces of information - but not to generate language, yet.
 
 The way wikidata can be populated with language info is with community effort. Various communities will have to provide lexicographic knowledge of their respective languages, ultimately creating a rich ecosystem of information flow. Notice, the amount of explicit language information required with Abstract Wikipedia will be much-much less than amount we have to build up in the current wikipedia, i.e for every topic in out language.
@@ -86,7 +86,7 @@ Phabricator [`T263678`](https://phabricator.wikimedia.org/T263678)
 
 **Analyze community authored functions that build Wikipedia infoboxes and more**
 
-> Finding the different community authored functions that are out there and helping to prioritize which ones would be good candidates for centralizing for Abstract Wikipedia and its centralized wiki of functions.
+> Finding the different community authored functions that are out there and help prioritize which ones would be good candidates for centralizing for Abstract Wikipedia and its centralized wiki of functions.
 
 Tasks:
 - Determine usage of community authored functions in articles and pageviews.
@@ -96,13 +96,16 @@ Tasks:
 
 Find me here:
 - https://www.outreachy.org/alums
-- https://www.mediawiki.org/wiki/Outreachy/Round_21#Recommended_steps_for_accepted_interns
-- 
+- https://www.mediawiki.org/wiki/Outreachy/Round_21#Accepted_projects
+- https://www.mediawiki.org/wiki/User:Aisha_Khatun
+
+And our work here:
+- github.com
 
 ## Initial set-up
 To set up my existence in Wikimedia I had to follow a few steps. This section is not for anyone to follow but a mere report of what I have been doing. One of the best things I find in wikimedia is the organization and instructions. There are instructions for _everything_. Anything I can conceivably need to start contributing to wikimedia, they have a wiki of instructions and troubleshooting for it. This just makes life so much more easier.
 
-#### Accounts 
+### Accounts 
 
 First is to create a bunch of accounts. This seemed a little confusing at first, but various domains on wikimedia require separate account creation and thus separate user pages. User pages are those that end in `User:your_name`. 
 
@@ -111,33 +114,39 @@ First is to create a bunch of accounts. This seemed a little confusing at first,
     - https://www.mediawiki.org/wiki/User:Aisha_Khatun
     - https://en.wikipedia.org/wiki/User:Aisha_Khatun (auto)
 - Also for development purposes I created a [wikitech account](https://wikitech.wikimedia.org/wiki/Special:CreateAccount), aka Wikimedia developer account or LDAP account. This account is also connected to Gerrit. It is recommended to set up 2 factor authentication here. The provided scratch codes need to be securely saved, those will be required if you loose/can't access your phone to login.
-- Then I created a `phabricator account`, and connected it to both my wikimedia and wikitech accounts. Guidelines [here](https://www.mediawiki.org/wiki/Phabricator/Help#Creating_your_account). We had to set up 2 factor here as well. But phabricator does not provide any sort of scratch codes, so loosing phone is going to be a bummer. What you do is set a [committed identity](https://meta.wikimedia.org/wiki/Template:User_committed_identity) in your wiki user page so that if you get locked out of phabricator you can be recognized through your committed identity hash.
+- Then I created a `phabricator account`, and connected it to both my wikimedia and wikitech accounts. Guidelines [here](https://www.mediawiki.org/wiki/Phabricator/Help#Creating_your_account). We had to set up 2 factor here as well. But phabricator does not provide any sort of scratch codes, so loosing phone is going to be a bummer. What you do is set a [committed identity](https://meta.wikimedia.org/wiki/Template:User_committed_identity) in your wiki user page so that if you get locked out of phabricator you can be recognized through your committed identity hash. [Here](https://www.mediawiki.org/wiki/Phabricator/Help/Two-factor_Authentication_Resets) are some more info.
 - Login to gerrit using your wikitech username and password, and there's your account.
 
-#### Gerrit and Docker
+### Gerrit and Docker
 
-All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, especially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the [instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial) to set up and use gerrit, set up docker and run the unit tests.
+All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, especially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the **[instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial)** to set up and use gerrit. Keep note of some of the frequently required commands like the command to push changes to Gerrit is `git review -R` or `git review <branch name>` etc. Finally set up docker and run the unit tests.
 
-#### IRC
-[IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can connect to various servers and channels within those servers as you wish. You create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up.
+### IRC
+[IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can connect to various servers and channels within those servers as you wish. To create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up. Note that all chat history is available as a text files. You can only see chat history on screen only after you have joined IRC.
 
-We used the freenode server (chat.freenode.net:6697). See [freenode](chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. This was more manageable as I created a account and simply set password so no one can impersonate me.
+We used the [freenode]((http://freenode.net/)) server (chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. This was more manageable as I created a account and simply set password so no one can impersonate me. See instructions to use IRC [here](https://meta.wikimedia.org/wiki/IRC/Instructions) and more about it [here](https://meta.wikimedia.org/wiki/IRC). List of Wikimedia IRC channels [here](https://meta.wikimedia.org/wiki/IRC/Channels).
 
-#### Mailing lists
+### Mailing lists
 Wikimedia has a LOT of mailing lists. I subscribed to some of those which concern my work over there. Like abstract-wikimedia, research and wikitech. The list of all mailing lists are [here](https://lists.wikimedia.org/). Anyone can join these lists to be updated on issues of their interest. I can basically get e-mail updates and also send information to everyone in the list through it.
 
 ## Onboarding and learning resources
 
 I have divided these materials into things about wikimedia and things to know to join wikimedia.
 
-#### About wikimedia:
+### About wikimedia:
 - [Wikipedia @ 20](https://wikipedia20.pubpub.org/)
 - [Movement Strategy](https://upload.wikimedia.org/wikipedia/commons/5/5b/Wikimedia_2030_Movement_Strategy_Recommendations_in_English.pdf)
 - [Abstract Wikipedia](https://arxiv.org/abs/2004.04733)
 - [WikiGnome](https://en.wikipedia.org/wiki/Wikipedia:WikiGnome). This is humorous.
 
-#### On-boarding:
+### On-boarding:
 - [Values](https://meta.wikimedia.org/wiki/Wikimedia_Foundation_Values)
 - [Guiding Principles](https://meta.wikimedia.org/wiki/Wikimedia_Foundation_Guiding_Principles)
 - [Wikimedia Engineering Architecture Principles](https://www.mediawiki.org/wiki/Wikimedia_Engineering_Architecture_Principles)
 - Debugging Teams: Better Productivity through Collaboration
+
+## Progress:
+1. **[Toolforge](https://wikitech.wikimedia.org/wiki/Portal:Toolforge)**: Created a toolforge account (logged in with wikitech account) and followed the [quickstart quide](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Quickstart). Had to go into several depths of links to create account, familiarize with how toolforge works and how to get started with it. To log in: `ssh USER@login.toolforge.org` and `become MYTOOL`. See **[VC in toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Version_Control_in_Toolforge)** and see [Toolforge from GitHub](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Auto-update_a_tool_from_GitHub) after you have cloned your Git Repo into your tool.
+2. Some more things to learn are [Grid](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid), [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). [Databases visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render).
+3. Task: Use the action API to fetch all scrubunto modules for all wiki content, in parallel using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
+    > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
