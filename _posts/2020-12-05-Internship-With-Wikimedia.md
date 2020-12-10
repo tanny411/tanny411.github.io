@@ -7,6 +7,14 @@ It's been just a while since my internship with Wikimedia started in Outreachy a
 
 This post is going to be quite long as I will be sharing my progress as I go through the internship. Some parts of it will be useful for people looking for internship and want to familiarize with what open source encompasses, or simply people looking to join the open source fun!
 
+### General purpose content: 
+Some things to know about in general as a SE. Or to join open source.
+- Gerrit
+- Docker
+- SSH
+- IRS
+- Mailing lists
+
 ## Contents:
 1. [Project Description](#project-description)
     - Wikimedia
@@ -18,6 +26,7 @@ This post is going to be quite long as I will be sharing my progress as I go thr
 3. [Initial set-up](#initial-set-up)
     - Accounts
     - Gerrit, Docker
+    - SSH
     - IRS
     - Mailing lists
 4. [Onboarding and learning resources](#onboarding-and-learning-resources)
@@ -95,18 +104,17 @@ Tasks:
 - Publish methodology and reports to be included as Abstract Wikipedia sub-page.
 
 Find me here:
-- https://www.outreachy.org/alums
-- https://www.mediawiki.org/wiki/Outreachy/Round_21#Accepted_projects
 - https://www.mediawiki.org/wiki/User:Aisha_Khatun
+- https://www.mediawiki.org/wiki/Outreachy/Round_21#Accepted_projects
+- https://www.outreachy.org/alums
 
 And our work here:
-- github.com
+- https://github.com/wikimedia/abstract-wikipedia-data-science
 
 ## Initial set-up
 To set up my existence in Wikimedia I had to follow a few steps. This section is not for anyone to follow but a mere report of what I have been doing. One of the best things I find in wikimedia is the organization and instructions. There are instructions for _everything_. Anything I can conceivably need to start contributing to wikimedia, they have a wiki of instructions and troubleshooting for it. This just makes life so much more easier.
 
 ### Accounts 
-
 First is to create a bunch of accounts. This seemed a little confusing at first, but various domains on wikimedia require separate account creation and thus separate user pages. User pages are those that end in `User:your_name`. 
 
 - Creating a user page in meta wiki is the best idea. This user page gets displayed in other domains where there isn't a user page in your name. For example if you create one in `meta.wikimedia.org`, it will show up in `en.wikipedia.org`. I did create one in mediawiki separately to post updates about the internship. My user pages are:
@@ -120,6 +128,10 @@ First is to create a bunch of accounts. This seemed a little confusing at first,
 ### Gerrit and Docker
 
 All you need to know about git and gerrit for wikimedia is already covered in their wikis. Here's the [gerrit](https://www.mediawiki.org/wiki/Gerrit) starter. All links from this page are important, especially the [How to become a wikimedia hacker](https://www.mediawiki.org/wiki/How_to_become_a_MediaWiki_hacker) page. Follow the **[instructions](https://www.mediawiki.org/wiki/Special:MyLanguage/Gerrit/Tutorial)** to set up and use gerrit. Keep note of some of the frequently required commands like the command to push changes to Gerrit is `git review -R` or `git review <branch name>` etc. Finally set up docker and run the unit tests.
+
+### SSH
+
+Get to know a little more about ssh. [Here](https://www.mediawiki.org/wiki/Gerrit/Tutorial#Set_Up_SSH_Keys_in_Gerrit)'s how to create a ssh key pair and use in gerrit. But for general purpose usage, see some more. [Here](https://wikitech.wikimedia.org/wiki/Help:Toolforge/My_first_Pywikibot_tool)'s another example of creating a ssh key pair and using it in toolforge.
 
 ### IRC
 [IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can connect to various servers and channels within those servers as you wish. To create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up. Note that all chat history is available as a text files. You can only see chat history on screen only after you have joined IRC.
@@ -146,7 +158,31 @@ I have divided these materials into things about wikimedia and things to know to
 - Debugging Teams: Better Productivity through Collaboration
 
 ## Progress:
-1. **[Toolforge](https://wikitech.wikimedia.org/wiki/Portal:Toolforge)**: Created a toolforge account (logged in with wikitech account) and followed the [quickstart quide](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Quickstart). Had to go into several depths of links to create account, familiarize with how toolforge works and how to get started with it. To log in: `ssh USER@login.toolforge.org` and `become MYTOOL`. See **[VC in toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Version_Control_in_Toolforge)** and see [Toolforge from GitHub](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Auto-update_a_tool_from_GitHub) after you have cloned your Git Repo into your tool.
-2. Some more things to learn are [Grid](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid), [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). [Databases visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render).
-3. Task: Use the action API to fetch all scrubunto modules for all wiki content, in parallel using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
+1. **[Toolforge](https://wikitech.wikimedia.org/wiki/Portal:Toolforge)**: Created a toolforge account (logged in with wikitech account) and followed the [quickstart quide](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Quickstart). Had to go into several depths of links to create account, familiarize with how toolforge works and how to get started with it. See **[VC in toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Version_Control_in_Toolforge)** and see [Toolforge from GitHub](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Auto-update_a_tool_from_GitHub) after you have cloned your Git Repo into your tool.
+
+    **How to work with toolforge**:
+    - Main website of [toolforge](https://toolsadmin.wikimedia.org/).
+    - Helpful Link: [Help:Toolfrge](https://wikitech.wikimedia.org/wiki/Help:Toolforge).
+    - [Example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/My_first_Pywikibot_tool) of using toolforge
+    - From terminal `ssh -i ~/.ssh/id_rsa <unix shell username>@login.toolforge.org` and `become MY_TOOL`.
+    - [Licensing](https://wikitech.wikimedia.org/wiki/Help:Tool_Labs/Developing#Licensing_your_source_code) your code.
+    - [About Tools](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Tool_Accounts). These pages link from The main Toolforge wiki, I am adding them nevertheless for quick reach. It contains common commands and usages of tools.
+    - [Document your Tool](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Developing_successful_tools#Write_some_docs).
+    - Making Tools with [Python](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Python)
+    - Using grid and python [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot)
+
+2. Learned about [Grid](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid), Grid usage [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot).
+    - Example usage `jsub [...options] python3 test.py` or `jsub script.sh`.
+    - If you want to send args to the python file, it will require escaping. Better is to create a wrapper script like `script.sh`. This script can activate python env, and then call the python file with arguments easily.
+    - For usage with python its best to create a venv, install pip, install all dependencies and do your work. See the example file for more.
+    - Maximum of 16 active jobs simultaneously allowed per tool user. The scheduler will hold additional job submissions in the qw (queued/waiting) until an active slot is available. Maximum of 50 active and queued jobs simultaneously allowed per tool user.
+    - Know more about `crontabs` see [this](https://phoenixnap.com/kb/set-up-cron-job-linux#:~:text=The%20Cron%20daemon%20is%20a,other%20commands%20to%20run%20automatically.). Basic usage:
+        ```
+        crontab -e
+        # at the end of this file add the following to run at 8AM UTC everyday
+        0 8 * * * test-script.sh
+        ```
+3. [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). [Databases visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render).
+4. Task: Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
     > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
+5. To work interactively I used [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
