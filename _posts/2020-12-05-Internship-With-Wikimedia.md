@@ -164,7 +164,7 @@ I have divided these materials into things about wikimedia and things to know to
     - Main website of [toolforge](https://toolsadmin.wikimedia.org/).
     - Helpful Link: [Help:Toolfrge](https://wikitech.wikimedia.org/wiki/Help:Toolforge).
     - [Example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/My_first_Pywikibot_tool) of using toolforge
-    - From terminal `ssh -i ~/.ssh/id_rsa <unix shell username>@login.toolforge.org` and `become MY_TOOL`.
+    - From terminal `ssh -i ~/.ssh/id_rsa <unix shell username>@login.toolforge.org` and `become MY_TOOL`. `exit` to get out.
     - [Licensing](https://wikitech.wikimedia.org/wiki/Help:Tool_Labs/Developing#Licensing_your_source_code) your code.
     - [About Tools](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Tool_Accounts). These pages link from The main Toolforge wiki, I am adding them nevertheless for quick reach. It contains common commands and usages of tools.
     - [Document your Tool](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Developing_successful_tools#Write_some_docs).
@@ -182,7 +182,13 @@ I have divided these materials into things about wikimedia and things to know to
         # at the end of this file add the following to run at 8AM UTC everyday
         0 8 * * * test-script.sh
         ```
-3. [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). [Databases visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render).
+3. [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). There are lots of ways to access the databases. From toolforge, PAWS, Quarry etc. Connect from toolforge by `sql enwiki_p` for example.
+    - Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
+    - [Mediawiki Database visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render) and wikis for all tables of this [database](https://www.mediawiki.org/wiki/Category:MediaWiki_database_tables). See list of all databses by `SHOW databases;`. Our required one is called `mediawikiwiki_p`.
+    - Some tables/data are not available in databases. See [here](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#Redacted_tables). Mainly `user_properties`, `interwiki` and `text` tables are not available as is.
+    - How to make sql queries in mediawiki [here](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries) and query [examples](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries/Example_queries), More exmaples can be found in Quarry.
+    - Run SQL from browser using [Quarry](https://quarry.wmflabs.org/).
+    - We can create [user databases](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#User_databases) too.
 4. Task: Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
     > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
 5. To work interactively I used [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
