@@ -105,6 +105,7 @@ Tasks:
 
 Find me here:
 - https://www.mediawiki.org/wiki/User:Aisha_Khatun
+- https://meta.wikimedia.org/wiki/Abstract_Wikipedia/Updates/2020-12-09
 - https://www.mediawiki.org/wiki/Outreachy/Round_21#Accepted_projects
 - https://www.outreachy.org/alums
 
@@ -136,7 +137,7 @@ Get to know a little more about ssh. [Here](https://www.mediawiki.org/wiki/Gerri
 ### IRC
 [IRC](https://meta.wikimedia.org/wiki/IRC) or internet relay chat is a form of communication through pure texts and is popular among open source communities. There can be various IRC clients, either on your PC or online. You can connect to various servers and channels within those servers as you wish. To create a permanent account you will need to set up a password so no one else can use your name. Follow the [guide](https://meta.wikimedia.org/wiki/IRC/Instructions) to know more how to set it up. Note that all chat history is available as a text files. You can only see chat history on screen only after you have joined IRC.
 
-We used the [freenode]((http://freenode.net/)) server (chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. This was more manageable as I created a account and simply set password so no one can impersonate me. See instructions to use IRC [here](https://meta.wikimedia.org/wiki/IRC/Instructions) and more about it [here](https://meta.wikimedia.org/wiki/IRC). List of Wikimedia IRC channels [here](https://meta.wikimedia.org/wiki/IRC/Channels).
+We used the [freenode]((http://freenode.net/)) server (chat.freenode.net:6697). I used `irccloud`, a web based client to connect to various channels of this server. The web option does not remain connected on free version, so I [installed Polari](https://linuxhint.com/irc_ubuntu/), a desktop app for the same. I created a account by simply setting a password so no one can impersonate me. See instructions to use IRC [here](https://meta.wikimedia.org/wiki/IRC/Instructions) and more about it [here](https://meta.wikimedia.org/wiki/IRC). List of Wikimedia IRC channels [here](https://meta.wikimedia.org/wiki/IRC/Channels).
 
 ### Mailing lists
 Wikimedia has a LOT of mailing lists. I subscribed to some of those which concern my work over there. Like abstract-wikimedia, research and wikitech. The list of all mailing lists are [here](https://lists.wikimedia.org/). Anyone can join these lists to be updated on issues of their interest. I can basically get e-mail updates and also send information to everyone in the list through it.
@@ -158,6 +159,9 @@ I have divided these materials into things about wikimedia and things to know to
 - Debugging Teams: Better Productivity through Collaboration
 
 ## Progress:
+
+### Learning and testing various components
+
 1. **[Toolforge](https://wikitech.wikimedia.org/wiki/Portal:Toolforge)**: Created a toolforge account (logged in with wikitech account) and followed the [quickstart quide](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Quickstart). Had to go into several depths of links to create account, familiarize with how toolforge works and how to get started with it. See **[VC in toolforge](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Version_Control_in_Toolforge)** and see [Toolforge from GitHub](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Auto-update_a_tool_from_GitHub) after you have cloned your Git Repo into your tool.
 
     **How to work with toolforge**:
@@ -168,7 +172,7 @@ I have divided these materials into things about wikimedia and things to know to
     - [Licensing](https://wikitech.wikimedia.org/wiki/Help:Tool_Labs/Developing#Licensing_your_source_code) your code.
     - [About Tools](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Tool_Accounts). These pages link from The main Toolforge wiki, I am adding them nevertheless for quick reach. It contains common commands and usages of tools.
     - [Document your Tool](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Developing_successful_tools#Write_some_docs).
-    - Making Tools with [Python](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Python)
+    - Making Tools with **[Python](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Python)**. Making venv, how to run scheduled tasks with from venv. The venv does not get automatically activated in Grid job submissions. Two common workarounds are having wrapping shell scripts that activates the venv, or use absolute paths to the binaries within: `jstart -N jobname venv/bin/python3 my_script.py`
     - Using grid and python [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot)
 
 2. Learned about [Grid](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid), Grid usage [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot).
@@ -184,11 +188,47 @@ I have divided these materials into things about wikimedia and things to know to
         ```
 3. [Database](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database). There are lots of ways to access the databases. From toolforge, PAWS, Quarry etc. Connect from toolforge by `sql enwiki_p` for example.
     - Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
-    - [Mediawiki Database visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render) and wikis for all tables of this [database](https://www.mediawiki.org/wiki/Category:MediaWiki_database_tables). See list of all databses by `SHOW databases;`. Our required one is called `mediawikiwiki_p`.
+    - [Mediawiki Database visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render) and wikis for all tables of this [database](https://www.mediawiki.org/wiki/Category:MediaWiki_database_tables). See list of all databases by `SHOW databases;` or [here](https://quarry.wmflabs.org/query/4031). Our required one is called `mediawikiwiki_p`.
     - Some tables/data are not available in databases. See [here](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#Redacted_tables). Mainly `user_properties`, `interwiki` and `text` tables are not available as is.
     - How to make sql queries in mediawiki [here](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries) and query [examples](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries/Example_queries), More exmaples can be found in Quarry.
     - Run SQL from browser using [Quarry](https://quarry.wmflabs.org/).
-    - We can create [user databases](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#User_databases) too.
-4. Task: Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
-    > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
-5. To work interactively I used [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
+    - We can create [user databases](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#User_databases) too. Exmaple
+        ```console
+        become my_tool
+        sql tool
+        ## find your credential by:
+        SELECT SUBSTRING_INDEX(CURRENT_USER(), '@', 1);
+        CREATE DATABASE CREDENTIALUSER__DBNAME;
+        ```
+4. Example use of database through toolforge using python:
+    ```console
+    ## my terminal
+    ssh -i ~/.ssh/id_rsa tanny411@login.toolforge.org
+
+    ## toolforge terminal
+    become test-tool-aisha
+
+    ## my tools terminal
+    python3 -mvenv my_venv
+    source my_venv/bin/activate
+
+    ## from venv
+    pip3 install --upgrade pip
+    pip install toolforge
+
+    python3
+    ## code in python3
+    import toolforge
+    conn = toolforge.connect('mediawikiwiki_p')
+    with conn.cursor() as cur:
+        cur.execute("SELECT * from user_groups LIMIT 2;")
+        for x in cur:
+            print(x)
+    ```
+    To create a user database you have to connect to `tools` database and then create database. May want to have multiple connections in your code. For our purposes we will have to collect data from API, mediawikiwiki_p and store in our user database.
+    5. To work interactively we can used [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
+  
+### Interhship Task
+
+Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
+> You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
