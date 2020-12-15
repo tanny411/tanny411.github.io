@@ -190,7 +190,7 @@ I have divided these materials into things about wikimedia and things to know to
     - Tabular listing of all wikis [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix).
     - [Mediawiki Database visual](https://www.mediawiki.org/w/index.php?title=Manual:Database_layout/diagram&action=render) and wikis for all tables of this [database](https://www.mediawiki.org/wiki/Category:MediaWiki_database_tables). See list of all databases by `SHOW databases;` or [here](https://quarry.wmflabs.org/query/4031). Our required one is called `mediawikiwiki_p`.
     - Some tables/data are not available in databases. See [here](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#Redacted_tables). Mainly `user_properties`, `interwiki` and `text` tables are not available as is.
-    - How to make sql queries in mediawiki [here](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries) and query [examples](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries/Example_queries), More exmaples can be found in Quarry.
+    - How to make sql queries in mediawiki [here](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries) and query [examples](https://wikitech.wikimedia.org/wiki/Help:MySQL_queries/Example_queries), More examples can be found in Quarry.
     - Run SQL from browser using [Quarry](https://quarry.wmflabs.org/).
     - We can create [user databases](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Database#User_databases) too. Exmaple
         ```console
@@ -200,6 +200,7 @@ I have divided these materials into things about wikimedia and things to know to
         SELECT SUBSTRING_INDEX(CURRENT_USER(), '@', 1);
         CREATE DATABASE CREDENTIALUSER__DBNAME;
         ```
+    - Accessing replica databases through PAWS [tutorial](https://public.paws.wmcloud.org/36582847/%2A2020%20UPDATED%2A%20Replica%20Helper%20%26%20Database%20connections%20with%20PAWS.ipynb) called `Working with Wiki replicas databases and datasets`.
 4. Example use of database through toolforge using python:
     ```console
     ## my terminal
@@ -226,9 +227,14 @@ I have divided these materials into things about wikimedia and things to know to
             print(x)
     ```
     To create a user database you have to connect to `tools` database and then create database. May want to have multiple connections in your code. For our purposes we will have to collect data from API, mediawikiwiki_p and store in our user database.
-    5. To work interactively we can used [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
+5. To work interactively we can use [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
+6. Getting to know [Lua/Scribunto](https://en.wikipedia.org/wiki/Help:Lua_for_beginners) and how to use functions in wiki [here](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
   
-### Interhship Task
+### Internship Task
 
 Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
 > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
+
+All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828).
+1. First we parse all wiki links from [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix)
+2. We create script to get API calls for each of these sites and store the contents of the Scribunto models. [API docs](https://www.mediawiki.org/wiki/Special:MyLanguage/API:Main_page) and test API with [sandbox](https://www.mediawiki.org/wiki/Special:ApiSandbox#action=help).
