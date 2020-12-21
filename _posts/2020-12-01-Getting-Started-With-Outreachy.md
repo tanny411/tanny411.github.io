@@ -59,7 +59,7 @@ Some other tips:
 The first step is the initial application. It is a crucial step where you write your story. Since Outreachy supports diversity in tech, they will ask if you have faced discriminatory situations, how you feel about those and what are your personal motivations to keep working in tech. Be articulate in your essays, be clear, be specific. Fill the form early and revise at least twice. Make your essays are perfect, you get selected for the contribution phase based on these. Don't over-do it though.
 
 ## Contribution phase
-Once you get selected for the contribution phase, it's time to show your magic! Basically, you work with mentors on a project, mentors select 1-2 candidates per project for the internship. 
+Once you get selected for the contribution phase, it's time to show your magic! Basically, you work with mentors on a project, mentors select 1-2 candidates per project for the internship. See what mentors look for in a [Outreachy](https://www.mediawiki.org/wiki/Outreachy/Mentors)/[GSoC](https://www.mediawiki.org/wiki/Google_Summer_of_Code/Mentors) intern. But remember! Your **work** talks the most, don't let your past experiences and unfamiliarity with open source be a barrier. Break those barriers, try a second time if the first time doesn't work out. You would have already broken your entry barriers by then for sure!
 
 * Go through the projects available for you to contribute. Don't overwhelm yourself with all the details. Match your skills with what the project mentions is required to work on it. Then look at the details of the few selected projects.
 * It's best to start with a project which requires languages and skills you are really good at. Consider how interesting it looks, that way you can enjoy the ride.

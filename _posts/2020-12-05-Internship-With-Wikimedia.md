@@ -32,7 +32,8 @@ Some things to know about in general as a SE. Or to join open source.
 4. [Onboarding and learning resources](#onboarding-and-learning-resources)
     - Wikimedia
     - On-boarding
-5. [ Progress](#progress)
+5. [Learning Progress](#learning-progress) 
+6. [Internship Progress](#internship-progress)
 
 ## Project Description
 In short, the beginning of a huge change. We all know about Wikipedia and how it has been helping millions of people around the world get access to free and open knowledge. And more importantly how anyone around the world can contribute to this endeavour through adding, correcting, or updating information in the wikis. But did you know Wikipedia is a project under the [Wikimedia](https://www.wikimedia.org/) foundation?
@@ -158,7 +159,7 @@ I have divided these materials into things about wikimedia and things to know to
 - [Wikimedia Engineering Architecture Principles](https://www.mediawiki.org/wiki/Wikimedia_Engineering_Architecture_Principles)
 - Debugging Teams: Better Productivity through Collaboration
 
-## Progress:
+## Learning Progress:
 
 ### Learning and testing various components
 
@@ -166,13 +167,12 @@ I have divided these materials into things about wikimedia and things to know to
 
     **How to work with toolforge**:
     - Main website of [toolforge](https://toolsadmin.wikimedia.org/).
-    - Helpful Link: [Help:Toolfrge](https://wikitech.wikimedia.org/wiki/Help:Toolforge).
-    - [Example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/My_first_Pywikibot_tool) of using toolforge
+    - Helpful Link: [Help:Toolfrge](https://wikitech.wikimedia.org/wiki/Help:Toolforge). [Example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/My_first_Pywikibot_tool) of using toolforge
     - From terminal `ssh -i ~/.ssh/id_rsa <unix shell username>@login.toolforge.org` and `become MY_TOOL`. `exit` to get out.
-    - [Licensing](https://wikitech.wikimedia.org/wiki/Help:Tool_Labs/Developing#Licensing_your_source_code) your code.
-    - [About Tools](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Tool_Accounts). These pages link from The main Toolforge wiki, I am adding them nevertheless for quick reach. It contains common commands and usages of tools.
-    - [Document your Tool](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Developing_successful_tools#Write_some_docs).
-    - Making Tools with **[Python](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Python)**. Making venv, how to run scheduled tasks with from venv. The venv does not get automatically activated in Grid job submissions. Two common workarounds are having wrapping shell scripts that activates the venv, or use absolute paths to the binaries within: `jstart -N jobname venv/bin/python3 my_script.py`
+    - [Licensing](https://wikitech.wikimedia.org/wiki/Help:Tool_Labs/Developing#Licensing_your_source_code) your code. [About Tools](https://wikitech.wikimedia.org/wiki/Portal:Toolforge/Tool_Accounts). These pages link from The main Toolforge wiki, I am adding them nevertheless for quick reach. It contains common commands and usages of tools. [Document your Tool](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Developing_successful_tools#Write_some_docs).
+    - To transfer files to-from tools or yourself in toolforge use scp from your **local terminal**. 
+        > <bd808> Bryan Davis tanny411: you can only connect with ssh/scp as your user, not as a tool user. So you would use your personal username, but could get files in/out of a tool by targeting the tool's $HOME with the location (meaning something like `scp bd808@login.toolforge.org:~tools.my_tool_name/some/file/path .`)
+    - Making Tools with **[Python](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Python)**. Making venv, how to run scheduled tasks from venv. The venv does not get automatically activated in Grid job submissions. Two common workarounds are having wrapping shell scripts that activates the venv, or use absolute paths to the binaries within: `jstart -N jobname venv/bin/python3 my_script.py`
     - Using grid and python [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot)
 
 2. Learned about [Grid](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Grid), Grid usage [example](https://wikitech.wikimedia.org/wiki/Help:Toolforge/Pywikibot).
@@ -201,6 +201,16 @@ I have divided these materials into things about wikimedia and things to know to
         CREATE DATABASE CREDENTIALUSER__DBNAME;
         ```
     - Accessing replica databases through PAWS [tutorial](https://public.paws.wmcloud.org/36582847/%2A2020%20UPDATED%2A%20Replica%20Helper%20%26%20Database%20connections%20with%20PAWS.ipynb) called `Working with Wiki replicas databases and datasets`.
+    - Connecting to database from local computer. Basically set a relay port in your pc, to which if we hit, it gets it on the wiki dbs.
+        ```console
+        ## copy over replica.my.cnf file
+        
+        ## for all db connections you want, do: -L $LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT to this line
+        ## different local ports (e.g. 4711, 3308 etc)
+
+        ssh -N yourusername@login.toolforge.org -L 4711:enwiki.analytics.db.svc.eqiad.wmflabs:3306
+        mysql --user=$USER_FROM_REPLICA.MY.CNF --host=127.0.0.1 --port=4711 --password enwiki_p
+        ```
 4. Example use of database through toolforge using python:
     ```console
     ## my terminal
@@ -228,13 +238,32 @@ I have divided these materials into things about wikimedia and things to know to
     ```
     To create a user database you have to connect to `tools` database and then create database. May want to have multiple connections in your code. For our purposes we will have to collect data from API, mediawikiwiki_p and store in our user database.
 5. To work interactively we can use [PAWS](https://wikitech.wikimedia.org/wiki/PAWS). It has access to the wiki databases as well.
-6. Getting to know [Lua/Scribunto](https://en.wikipedia.org/wiki/Help:Lua_for_beginners) and how to use functions in wiki [here](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual).
+6. Getting to know [Lua/Scribunto](https://en.wikipedia.org/wiki/Help:Lua_for_beginners) and how to use functions in wiki [here](https://www.mediawiki.org/wiki/Extension:Scribunto/Lua_reference_manual) and [here](https://en.wikipedia.org/wiki/Wikipedia:Lua).
   
-### Internship Task
+## Internship Progress
 
 Use the action API to fetch all Scribunto modules for all wiki content, in parallel, using the grid. Update these fetched data regularly. Enhance api queries with queries against the database replicas. Page contents (what we really want) is to be extracted with API as it's not available in database.
 > You can maybe look at this in the other direction, though. It might be easier to do SQL queries via script to determine more reliably without API pagination the full list of modules to obtain, and then utilize the API or action=raw access to get everything you need for the actual Lua. It's also completely fine to just use the Action API for all of it!
 
+Then we are to find the relationships between modules, data about module usage and what are the most important modules. Find and remove redundancy if possible and centralize similar codes. These are among the first steps to make wikipedia functions language independent towards the goal of Abstract Wikipedia. For example, see a function in [English](https://en.wikipedia.org/wiki/Module:Yesno) and [Bangla](https://bn.wikipedia.org/wiki/%E0%A6%AE%E0%A6%A1%E0%A6%BF%E0%A6%89%E0%A6%B2:Yesno). See for more languages from the language section of the left tab.
+
 All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828).
-1. First we parse all wiki links from [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix)
-2. We create script to get API calls for each of these sites and store the contents of the Scribunto models. [API docs](https://www.mediawiki.org/wiki/Special:MyLanguage/API:Main_page) and test API with [sandbox](https://www.mediawiki.org/wiki/Special:ApiSandbox#action=help).
+1. First we parse all wiki links from [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). Alternatively we can get all the links from WM database replicas. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/1).
+2. We create scripts for API calls to each of these sites and store the contents of the Scribunto models. [API docs](https://www.mediawiki.org/wiki/Special:MyLanguage/API:Main_page) and test API with [sandbox](https://www.mediawiki.org/wiki/Special:ApiSandbox#action=help). Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/7). This includes:
+    - Python script to call API and fetch contents.
+    - Bash scripts to call cron jobs to run the python script daily. (Requires some testing and solving memory issues)
+    - Finding a suitable way to store the content (Started with storing in csv, will move to database eventually)
+3. Identify and collect relevant data for analysis of Scribunto modules. First I had to understand how Lua Modules are used in wikis and how to understand which wikis use them. Then their usage information can be collected to identify most used Modules, redundant ones etc. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). Things to know:
+    - To see where a module is used, click the `what links here` on the left tab.
+    - To see what pages and modules a wiki page uses, click the edit tab and scroll down. Click `Pages transcluded onto the current version of this page`. This lists modules used in this page even indirectly, for example through a template. 
+    - List of modules [here](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828), i.e Namespace `828`.
+    - Some module pages tell us how many pages use this (transclusion) at the top (e.g. [this](https://en.wikipedia.org/wiki/Module:Adjacent_stations)). This transclusion count is done by [Ahecht bot](https://en.wikipedia.org/wiki/User:Ahechtbot/transclusioncount.py) and stored [here](https://en.wikipedia.org/wiki/Module:Transclusion_count/data). See [docs](https://en.wikipedia.org/wiki/Template:High-use/doc#Technical_details) for more details. The code of this bot can be useful as reference for our purposes.
+    - Same thing can be done from API. See API docs of [listing all transclusion](https://www.mediawiki.org/wiki/API:Templates).
+4. **Some learning points** when I tried to run and check huge amounts of data. I had to make very careful decisions on how to write my code. Especially in pandas, when loading csv. Let alone wiki contents (~1,8G!), only page_id and wiki link wouldn't load (15M + 18M), there's that many pages across all wikis! I had to:
+    - Set columns types as int/float where necessary as loading as string was taking up too much memory.
+    - I could not load two dfs together even though I would later truncate them.
+    - Load in chunks. This was a issue when I wanted to compare two dfs, so in each loop, I compared each chunk to the other fully loaded df. I think this was a lucky escape, what if none of the dfs could be fully loaded into memory? Maybe will come up in future, will have to come up with a clever code.
+    - I had to reuse lots of df variables, `del` dfs when done. Had to write code such that no df needed to be copied, even partially, to make any operation.
+    - Also made sure I used all the `inplace` options when possible.
+
+    Later, when I ran into issues due to bad data, I couldn't find any easy solution. I wanted to ignore bad data but pandas ignores when there is more columns than necessary, not less. Normally I would check the raw data to see whats going on and why the bad data was created in the first place. But large files! After much maneuvering with pandas docs, I ended up simply doing a `grep` looking for the piece of data that was causing the error! Sometimes I wish easier solutions ring a bell faster in my head.
