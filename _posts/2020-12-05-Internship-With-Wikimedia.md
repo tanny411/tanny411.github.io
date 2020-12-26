@@ -267,3 +267,48 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
     - Also made sure I used all the `inplace` options when possible.
 
     Later, when I ran into issues due to bad data, I couldn't find any easy solution. I wanted to ignore bad data but pandas ignores when there is more columns than necessary, not less. Normally I would check the raw data to see whats going on and why the bad data was created in the first place. But large files! After much maneuvering with pandas docs, I ended up simply doing a `grep` looking for the piece of data that was causing the error! Sometimes I wish easier solutions ring a bell faster in my head.
+5. Database exploration. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9)
+6. Due to racing conditions use of `csv` files had to be abandoned. Also loading from csv created issues due to file size, unprecedented symbols (comma, quotes) in contents etc. All these and more can be solved by creating a user db in toolsdb. With this end all file read and writes were transitioned to databases. Work progress in `database-refactor` and `content-fetcher-database` branches. The code was cleaned such that revision can also be done with the same script. For example, when latest page content is already available its writing will be skipped, else it will be written. It would have been very hard to accomplish if things were written in files.
+7. To run large processes we use Grid and set cronjobs for regular calls. To test with small amount of data we can run python scripts in toolforge (to get database access). But testing and checking code becomes a pain if every small change has to be made locally, then transferred to toolforge and then run. For this the solution is to set up database access locally. Follow the `database_setup.md` file to set up port forwarding from your PC to toolforge database.
+
+    `ssh -N <username>@dev.toolforge.org -L 1147:tools.db.svc.eqiad.wmflabs:3306`
+
+    Here username is your toolforge username, replica_user is your tool. See your tool username and password from the `replica.my.cnf` file. Make sure to create a connection for each db you are going to access with different ports (1147, 1148 etc). Multiple connections can also be set in one command. See [toolforge:Database]() for more.
+    
+    Now to connect to it from terminal by
+
+    `mysql --user=<replica_user> --host=127.0.0.1 --port=1147 --password <replica_user>__data`
+
+    or with python (to run your scripts locally)
+
+    `conn = pymysql.connect(host='localhost', port = 1147, user='<replica_user>', db='<replica_user>__data', password='<replica_pass>')`
+
+8. We are using `pymysql` as with the toolforge library. This requires us to iterate through the dataframe and insert every row separately. An alternative and faster way is to use `sqlalchemy` and use `df.to_sql()`. See [this](https://www.iditect.com/how-to/58232218.html), [this](https://www.dataquest.io/blog/sql-insert-tutorial/) and pandas docs for more. But we need to consider what will happen with multiple crons do bulk inserts. Maybe not a good idea as db may remain locked for too long.
+9. Some frequent commands:
+    ```console
+    ## update refs
+    git fetch --all
+
+    ## force pull
+    git reset --hard origin/<branch_name>
+
+    ## checkout and create from remote branch
+    git fetch --all
+    git checkout --track origin/<branch_name>
+
+    ## stash (conflicts retains the stash on pop)
+    git stash
+    git pop # applies latest
+    git stash list
+    git stash apply stash@{stash_number}
+
+    ## Mistakenly commit (maybe also push) something?
+    git reset --soft HEAD~2 # goes back 2 commits
+    ## then commit and force push if you've pushed before
+
+    ## List ssh ports being used
+    ps aux | grep ssh
+
+    ## list all cronjobs full values (cuz names get truncated sometimes)
+    qstat -xml | tr '\n' ' ' | sed 's#<job_list[^>]*>#\n#g'   | sed 's#<[^>]*>##g' | grep " " | column -t
+    ```
