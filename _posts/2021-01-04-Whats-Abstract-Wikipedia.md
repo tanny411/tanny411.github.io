@@ -19,6 +19,7 @@ Other projects include Wiktionary, Wikibooks, Wikinews, MediaWiki (the software 
 The Wikimedia Foundation is a non-profit with the aim that `every single human being can share freely in the sum of all knowledge`. On its face, it may seem easy or something Wikipedia has already accomplished unless you start getting deeper into the project and see what's going on. Consider languages other than English, French, or some of the few common languages. Not only do these languages have drastically fewer Wikipedia articles (despite being used WIDELY as spoken and written language) but even the articles that are written may not be comprehensive or comprises of just some introductory paragraphs.
 
 Here is a short comparison of the number of articles in a few languages. `Rank of language` is their rank by the total number of speakers of that language worldwide (source: [Wikipedia](https://en.wikipedia.org/wiki/List_of_languages_by_total_number_of_speakers))
+<br />
 
 | Wikipedia  | #Articles   | Rank of language |
 | ---------- | ----------- | ---------------- |
@@ -33,6 +34,7 @@ Here is a short comparison of the number of articles in a few languages. `Rank o
 | Portuguese | 1 million   | 9                |
 | Indonesian | 555 k       | 10               |
 
+<br />
 I mean just look at Bengali and Hindi for a second. Despite being the 7th and 3rd most spoken language in the world, the amount of knowledge in these languages in Wikipedia is 1/60 th of English! Not to mention even the 2nd most spoken language is 1/6 th of that of English. Knowing English is a privilege not everyone has and is not even the second language in many countries. Not only are many people being deprived of knowledge in their language, but others are also deprived of so much information these people can provide.
 
 The way it roughly works at the moment is
