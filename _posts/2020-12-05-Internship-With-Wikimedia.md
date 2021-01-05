@@ -300,9 +300,8 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
 
    Later, when I ran into issues due to bad data, I couldn't find any easy solution. I wanted to ignore bad data but pandas ignores when there is more columns than necessary, not less. Normally I would check the raw data to see whats going on and why the bad data was created in the first place. But large files! After much maneuvering with pandas docs, I ended up simply doing a `grep` looking for the piece of data that was causing the error! Sometimes I wish easier solutions ring a bell faster in my head.
 
-5. Database exploration. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9)
-6. Due to racing conditions use of `csv` files had to be abandoned. Also loading from csv created issues due to file size, unprecedented symbols (comma, quotes) in contents etc. All these and more can be solved by creating a user db in toolsdb. With this end all file read and writes were transitioned to databases. Work progress in `database-refactor` and `content-fetcher-database` branches. The code was cleaned such that revision can also be done with the same script. For example, when latest page content is already available its writing will be skipped, else it will be written. It would have been very hard to accomplish if things were written in files.
-7. To run large processes we use Grid and set cronjobs for regular calls. To test with small amount of data we can run python scripts in toolforge (to get database access). But testing and checking code becomes a pain if every small change has to be made locally, then transferred to toolforge and then run. For this the solution is to set up database access locally. Follow the `database_setup.md` file to set up port forwarding from your PC to toolforge database.
+5. Due to racing conditions use of `csv` files had to be abandoned. Also loading from csv created issues due to file size, unprecedented symbols (comma, quotes) in contents etc. All these and more can be solved by creating a user db in toolsdb. With this end all file read and writes were transitioned to databases. Work progress in `database-refactor` and `content-fetcher-database` branches. The code was cleaned such that revision can also be done with the same script. For example, when latest page content is already available its writing will be skipped, else it will be written. It would have been very hard to accomplish if things were written in files.
+6. To run large processes we use Grid and set cronjobs for regular calls. To test with small amount of data we can run python scripts in toolforge (to get database access). But testing and checking code becomes a pain if every small change has to be made locally, then transferred to toolforge and then run. For this the solution is to set up database access locally. Follow the `database_setup.md` file to set up port forwarding from your PC to toolforge database.
 
    `ssh -N <username>@dev.toolforge.org -L 1147:tools.db.svc.eqiad.wmflabs:3306`
 
@@ -316,8 +315,8 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
 
    `conn = pymysql.connect(host='localhost', port = 1147, user='<replica_user>', db='<replica_user>__data', password='<replica_pass>')`
 
-8. We are using `pymysql` as with the toolforge library. This requires us to iterate through the dataframe and insert every row separately. An alternative and faster way is to use `sqlalchemy` and use `df.to_sql()`. See [this](https://www.iditect.com/how-to/58232218.html), [this](https://www.dataquest.io/blog/sql-insert-tutorial/) and pandas docs for more. But we need to consider what will happen with multiple crons do bulk inserts. Maybe not a good idea as db may remain locked for too long.
-9. Some frequent commands:
+7. We are using `pymysql` as with the toolforge library. This requires us to iterate through the dataframe and insert every row separately. An alternative and faster way is to use `sqlalchemy` and use `df.to_sql()`. See [this](https://www.iditect.com/how-to/58232218.html), [this](https://www.dataquest.io/blog/sql-insert-tutorial/) and pandas docs for more. But we need to consider what will happen with multiple crons do bulk inserts. Maybe not a good idea as db may remain locked for too long.
+8. Some frequent commands:
 
    ```console
    ## update refs
@@ -350,3 +349,51 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
    ## list all cronjobs full values (cuz names get truncated sometimes)
    qstat -xml | tr '\n' ' ' | sed 's#<job_list[^>]*>#\n#g'   | sed 's#<[^>]*>##g' | grep " " | column -t
    ```
+
+9. Database exploration. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). I started out by trying to understand what the data in the tables represent and how they might be useful for us. There were lots of tables and it took some time to figure out the differences between the pagelinks, langlinks, templatelinks and iwlinks tables. I explored the source of wiki pages to find how the modules are used (by #invoke) which is different from linking a module, which just means the module is being talked about, either in talk pages, or places to link to the module page for reference. I found that mostly modules are used in template pages and the list of transclusions of any wiki lists _all_ the pages used in it, wither directly or indirectly. So that saved us some work as I simply queried the templatelinks table to find places a module is being used.
+
+10. Completed my work on collecting relevant data from databases. My initial hunch was that collecting info from databases is going to be fast because:
+
+    - they are mostly numbers (working with strings is slow)
+    - SQL queries will be faster than API calls (which include pagination, making things slower)
+    - with API we are collecting source code (huge chunks of text) as opposed to analysis information from database
+
+    **Learning points and struggles**:
+
+    - Getting relevant information from databases was a LOT more time consuming because there were lots of JOINs and conditions and the query had to go through ALL the pages, not just Scribunto modules.
+    - Things got messier when I realized I can't create views or even temporary tables with read-only mode. MySQL also doesn't support `WITH` clause, so in some places I had to repeat a sub-query which a query, where the sub-query itself was quite expensive (joining 4 tables!).
+    - Another issue was that I could not use table information across databases. So in one instance I copied an entire table to user-db, did my SQL magic, and then deleted it. And no wonder that query - across all wikis - was taking over 12 hours. I am questioning if we really need to know how many inter-wiki pages link a specific module? If not, I might be better off not even saving tis information.
+    - The old running and testing db queries locally was still there. I was able to fix minor bugs and get things working locally but when trying to diagnose memory issues, racing conditions, deadlocks on db etc, I had to turn to toolforge. Now toolforge is great and all but I can't rapidly prototype in toolforge plus sometimes it gets _REALLY_ slow! I mean just typing some commands in bash would a long time (1 letter appeared in 5 seconds).
+    - To investigate transclusions and pagelinks here's what I did:
+
+      - chose a random module from [this page](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=chess&namespace=828)
+      - `what links here`
+      - looked at a transclusion ( re assured myself it is used by #invoke )
+      - looked at links: what might link to modules (user, talk pages and mostly templates)
+      - dug deeper into a talk page that links a module
+      - found the talk page's id from page table
+      - looked for this pageid in iwlinks too if it lists and _how_ it lists the link to the module.
+      - Links dont seem to be consistent. I couldnt find iwlinks as i saw on the wikis, in the database. So it was hard to figure out concretely what these meant.
+      - So i now went the other way around. Found a link in iwlinks table, looked for its page title from page table. looked up that wiki page. But cant find all of these links when i actually look in the wiki. maybe db not updated enough? Unlikely. how old is the db???
+      - FYI: iwls are links to OTHER wikis. pagelinks table contains links to the SAME wiki. So from en to bn is iwl but en to en is pagelink.
+
+    - I learned about interwiki prefixes and how they work. Sadly the interwiki table is empty in replicas, so I created a script to fetch and populate this table this table in user database through the API. I landed on [this mapping](https://meta.wikimedia.org/wiki/Interwiki_map) along the way.
+
+    - When fetching data from databases and then saving them back to user-db memory issues were bound to happend. But, I can't believe pandas ditched me, I shoul've known better. Typically pandas `chunk_size` should give me a generator, which I thought would fetch data from db with `read_sql` in chunks and I'd save them. But it seems sometimes pandas tries to load the entire data into memory and gives us chunks from there! I mean seriously, whats the point? See [this issue](https://github.com/pandas-dev/pandas/issues/12265). I inially did not know this and went crazy with why I am getting the errors. Note that I did not get explicit memory errors, I got `segmentation fault (core dumped)`. So I was also confused it was a memory error at all, although I was pretty sure that was it. Finally I used `limit offset` in SQL instead of df chunk size, slow but works. Time-Memory tradeoff.
+    - Another issue I ran into was that I created python generators with condition, which now I know should not be done. Basically I had a flag that said either yield or do something else. But with the `yield` keyword, that function is now a generator and so it failed to do other things. And the worst part was that it wouldn't raise any errors, so I was banging my head on the table trying to figure out why my function isn't even being called! I used vscode debugger and what not.
+    - When running cron jobs for getting db infos, I ran out of the number of open connections I could have. So I had to reduce the number of crons running and pair them up based on their time so that no single cron would take too long to finish.
+    - I got to know about `eval()` in python with which I could send in the name of a function in string and call it like `eval(func_name)(**params)`.
+    - Lastly I made sure all db connections were closed even if the code got interrupted by putting the `conn.close()` statements in the `finally` block of `try-except`.
+
+11. Some additional work:
+
+    - Reviewed and tested Jades code to make our code work from both toolforge and our pc.
+    - Set up pep8 in vscode https://ruddra.com/vs-code-for-python-development/
+
+12. The most important information for us is
+
+    1. Where a module is being used (#invoked) - i.e. transcluded.
+    2. How often are the pages that use these modules viewed?
+    3. Find inter-module relations by identifying what modules are transcluded in what other modules.
+
+    These information are yet to be explored by data analysis. So far the number of transclusions and transcluded-in are being saved in the user database.
