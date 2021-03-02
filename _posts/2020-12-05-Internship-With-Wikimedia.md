@@ -279,78 +279,78 @@ Then we are to find the relationships between modules, data about module usage a
 
 All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828).
 
-1. First we parse all wiki links from [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). Alternatively we can get all the links from WM database replicas. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/1).
-2. We create scripts for API calls to each of these sites and store the contents of the Scribunto models. [API docs](https://www.mediawiki.org/wiki/Special:MyLanguage/API:Main_page) and test API with [sandbox](https://www.mediawiki.org/wiki/Special:ApiSandbox#action=help). Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/7). This includes:
-   - Python script to call API and fetch contents.
-   - Bash scripts to call cron jobs to run the python script daily. (Requires some testing and solving memory issues)
-   - Finding a suitable way to store the content (Started with storing in csv, will move to database eventually)
-3. Identify and collect relevant data for analysis of Scribunto modules. First I had to understand how Lua Modules are used in wikis and how to understand which wikis use them. Then their usage information can be collected to identify most used Modules, redundant ones etc. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). Things to know:
-   - To see where a module is used, click the `what links here` on the left tab.
-   - To see what pages and modules a wiki page uses, click the edit tab and scroll down. Click `Pages transcluded onto the current version of this page`. This lists modules used in this page even indirectly, for example through a template.
-   - List of modules [here](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828), i.e Namespace `828`.
-   - Some module pages tell us how many pages use this (transclusion) at the top (e.g. [this](https://en.wikipedia.org/wiki/Module:Adjacent_stations)). This transclusion count is done by [Ahecht bot](https://en.wikipedia.org/wiki/User:Ahechtbot/transclusioncount.py) and stored [here](https://en.wikipedia.org/wiki/Module:Transclusion_count/data). See [docs](https://en.wikipedia.org/wiki/Template:High-use/doc#Technical_details) for more details. The code of this bot can be useful as reference for our purposes.
-   - Same thing can be done from API. See API docs of [listing all transclusion](https://www.mediawiki.org/wiki/API:Templates).
-4. **Some learning points** when I tried to run and check huge amounts of data. I had to make very careful decisions on how to write my code. Especially in pandas, when loading csv. Let alone wiki contents (~1,8G!), only page_id and wiki link wouldn't load (15M + 18M), there's that many pages across all wikis! I had to:
+1.  First we parse all wiki links from [here](https://meta.wikimedia.org/wiki/Special:SiteMatrix). Alternatively we can get all the links from WM database replicas. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/1).
+2.  We create scripts for API calls to each of these sites and store the contents of the Scribunto models. [API docs](https://www.mediawiki.org/wiki/Special:MyLanguage/API:Main_page) and test API with [sandbox](https://www.mediawiki.org/wiki/Special:ApiSandbox#action=help). Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/7). This includes:
+    - Python script to call API and fetch contents.
+    - Bash scripts to call cron jobs to run the python script daily. (Requires some testing and solving memory issues)
+    - Finding a suitable way to store the content (Started with storing in csv, will move to database eventually)
+3.  Identify and collect relevant data for analysis of Scribunto modules. First I had to understand how Lua Modules are used in wikis and how to understand which wikis use them. Then their usage information can be collected to identify most used Modules, redundant ones etc. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). Things to know:
+    - To see where a module is used, click the `what links here` on the left tab.
+    - To see what pages and modules a wiki page uses, click the edit tab and scroll down. Click `Pages transcluded onto the current version of this page`. This lists modules used in this page even indirectly, for example through a template.
+    - List of modules [here](https://en.wikipedia.org/wiki/Special:PrefixIndex?prefix=&namespace=828), i.e Namespace `828`.
+    - Some module pages tell us how many pages use this (transclusion) at the top (e.g. [this](https://en.wikipedia.org/wiki/Module:Adjacent_stations)). This transclusion count is done by [Ahecht bot](https://en.wikipedia.org/wiki/User:Ahechtbot/transclusioncount.py) and stored [here](https://en.wikipedia.org/wiki/Module:Transclusion_count/data). See [docs](https://en.wikipedia.org/wiki/Template:High-use/doc#Technical_details) for more details. The code of this bot can be useful as reference for our purposes.
+    - Same thing can be done from API. See API docs of [listing all transclusion](https://www.mediawiki.org/wiki/API:Templates).
+4.  **Some learning points** when I tried to run and check huge amounts of data. I had to make very careful decisions on how to write my code. Especially in pandas, when loading csv. Let alone wiki contents (~1,8G!), only page_id and wiki link wouldn't load (15M + 18M), there's that many pages across all wikis! I had to:
 
-   - Set columns types as int/float where necessary as loading as string was taking up too much memory.
-   - I could not load two dfs together even though I would later truncate them.
-   - Load in chunks. This was a issue when I wanted to compare two dfs, so in each loop, I compared each chunk to the other fully loaded df. I think this was a lucky escape, what if none of the dfs could be fully loaded into memory? Maybe will come up in future, will have to come up with a clever code.
-   - I had to reuse lots of df variables, `del` dfs when done. Had to write code such that no df needed to be copied, even partially, to make any operation.
-   - Also made sure I used all the `inplace` options when possible.
+    - Set columns types as int/float where necessary as loading as string was taking up too much memory.
+    - I could not load two dfs together even though I would later truncate them.
+    - Load in chunks. This was a issue when I wanted to compare two dfs, so in each loop, I compared each chunk to the other fully loaded df. I think this was a lucky escape, what if none of the dfs could be fully loaded into memory? Maybe will come up in future, will have to come up with a clever code.
+    - I had to reuse lots of df variables, `del` dfs when done. Had to write code such that no df needed to be copied, even partially, to make any operation.
+    - Also made sure I used all the `inplace` options when possible.
 
-   Later, when I ran into issues due to bad data, I couldn't find any easy solution. I wanted to ignore bad data but pandas ignores when there is more columns than necessary, not less. Normally I would check the raw data to see whats going on and why the bad data was created in the first place. But large files! After much maneuvering with pandas docs, I ended up simply doing a `grep` looking for the piece of data that was causing the error! Sometimes I wish easier solutions ring a bell faster in my head.
+    Later, when I ran into issues due to bad data, I couldn't find any easy solution. I wanted to ignore bad data but pandas ignores when there is more columns than necessary, not less. Normally I would check the raw data to see whats going on and why the bad data was created in the first place. But large files! After much maneuvering with pandas docs, I ended up simply doing a `grep` looking for the piece of data that was causing the error! Sometimes I wish easier solutions ring a bell faster in my head.
 
-5. Due to racing conditions use of `csv` files had to be abandoned. Also loading from csv created issues due to file size, unprecedented symbols (comma, quotes) in contents etc. All these and more can be solved by creating a user db in toolsdb. With this end all file read and writes were transitioned to databases. Work progress in `database-refactor` and `content-fetcher-database` branches. The code was cleaned such that revision can also be done with the same script. For example, when latest page content is already available its writing will be skipped, else it will be written. It would have been very hard to accomplish if things were written in files.
-6. To run large processes we use Grid and set cronjobs for regular calls. To test with small amount of data we can run python scripts in toolforge (to get database access). But testing and checking code becomes a pain if every small change has to be made locally, then transferred to toolforge and then run. For this the solution is to set up database access locally. Follow the `database_setup.md` file to set up port forwarding from your PC to toolforge database.
+5.  Due to racing conditions use of `csv` files had to be abandoned. Also loading from csv created issues due to file size, unprecedented symbols (comma, quotes) in contents etc. All these and more can be solved by creating a user db in toolsdb. With this end all file read and writes were transitioned to databases. Work progress in `database-refactor` and `content-fetcher-database` branches. The code was cleaned such that revision can also be done with the same script. For example, when latest page content is already available its writing will be skipped, else it will be written. It would have been very hard to accomplish if things were written in files.
+6.  To run large processes we use Grid and set cronjobs for regular calls. To test with small amount of data we can run python scripts in toolforge (to get database access). But testing and checking code becomes a pain if every small change has to be made locally, then transferred to toolforge and then run. For this the solution is to set up database access locally. Follow the `database_setup.md` file to set up port forwarding from your PC to toolforge database.
 
-   `ssh -N <username>@dev.toolforge.org -L 1147:tools.db.svc.eqiad.wmflabs:3306`
+    `ssh -N <username>@dev.toolforge.org -L 1147:tools.db.svc.eqiad.wmflabs:3306`
 
-   Here username is your toolforge username, replica_user is your tool. See your tool username and password from the `replica.my.cnf` file. Make sure to create a connection for each db you are going to access with different ports (1147, 1148 etc). Multiple connections can also be set in one command. See [toolforge:Database]() for more.
+    Here username is your toolforge username, replica_user is your tool. See your tool username and password from the `replica.my.cnf` file. Make sure to create a connection for each db you are going to access with different ports (1147, 1148 etc). Multiple connections can also be set in one command. See [toolforge:Database]() for more.
 
-   Now to connect to it from terminal by
+    Now to connect to it from terminal by
 
-   `mysql --user=<replica_user> --host=127.0.0.1 --port=1147 --password <replica_user>__data`
+    `mysql --user=<replica_user> --host=127.0.0.1 --port=1147 --password <replica_user>__data`
 
-   or with python (to run your scripts locally)
+    or with python (to run your scripts locally)
 
-   `conn = pymysql.connect(host='localhost', port = 1147, user='<replica_user>', db='<replica_user>__data', password='<replica_pass>')`
+    `conn = pymysql.connect(host='localhost', port = 1147, user='<replica_user>', db='<replica_user>__data', password='<replica_pass>')`
 
-7. We are using `pymysql` as with the toolforge library. This requires us to iterate through the dataframe and insert every row separately. An alternative and faster way is to use `sqlalchemy` and use `df.to_sql()`. See [this](https://www.iditect.com/how-to/58232218.html), [this](https://www.dataquest.io/blog/sql-insert-tutorial/) and pandas docs for more. But we need to consider what will happen with multiple crons do bulk inserts. Maybe not a good idea as db may remain locked for too long.
-8. Some frequent commands:
+7.  We are using `pymysql` as with the toolforge library. This requires us to iterate through the dataframe and insert every row separately. An alternative and faster way is to use `sqlalchemy` and use `df.to_sql()`. See [this](https://www.iditect.com/how-to/58232218.html), [this](https://www.dataquest.io/blog/sql-insert-tutorial/) and pandas docs for more. But we need to consider what will happen with multiple crons do bulk inserts. Maybe not a good idea as db may remain locked for too long.
+8.  Some frequent commands:
 
-   ```console
-   ## update refs
-   git fetch --all
+    ```console
+    ## update refs
+    git fetch --all
 
-   ## force pull (sometimes you need to stage everything before this)
-   git reset --hard origin/<branch_name>
+    ## force pull (sometimes you need to stage everything before this)
+    git reset --hard origin/<branch_name>
 
-   ## checkout and create from remote branch
-   git fetch --all
-   git checkout --track origin/<branch_name>
+    ## checkout and create from remote branch
+    git fetch --all
+    git checkout --track origin/<branch_name>
 
-   ## stash (conflicts retains the stash on pop)
-   git stash
-   git pop # applies latest
-   git stash list
-   git stash apply stash@{stash_number}
+    ## stash (conflicts retains the stash on pop)
+    git stash
+    git pop # applies latest
+    git stash list
+    git stash apply stash@{stash_number}
 
-   ## Mistakenly commit (maybe also push) something?
-   git reset --soft HEAD~2 # goes back 2 commits
-   ## then commit and force push if you've pushed before
+    ## Mistakenly commit (maybe also push) something?
+    git reset --soft HEAD~2 # goes back 2 commits
+    ## then commit and force push if you've pushed before
 
-   ## See branch infos
-   git branch (see list of branches)
-   git remote show origin (see who is tracking who)
+    ## See branch infos
+    git branch (see list of branches)
+    git remote show origin (see who is tracking who)
 
-   ## List ssh ports being used
-   ps aux | grep ssh
+    ## List ssh ports being used
+    ps aux | grep ssh
 
-   ## list all cronjobs full values (cuz names get truncated sometimes)
-   qstat -xml | tr '\n' ' ' | sed 's#<job_list[^>]*>#\n#g'   | sed 's#<[^>]*>##g' | grep " " | column -t
-   ```
+    ## list all cronjobs full values (cuz names get truncated sometimes)
+    qstat -xml | tr '\n' ' ' | sed 's#<job_list[^>]*>#\n#g'   | sed 's#<[^>]*>##g' | grep " " | column -t
+    ```
 
-9. Database exploration. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). I started out by trying to understand what the data in the tables represent and how they might be useful for us. There were lots of tables and it took some time to figure out the differences between the pagelinks, langlinks, templatelinks and iwlinks tables. I explored the source of wiki pages to find how the modules are used (by #invoke) which is different from linking a module, which just means the module is being talked about, either in talk pages, or places to link to the module page for reference. I found that mostly modules are used in template pages and the list of transclusions of any wiki lists _all_ the pages used in it, wither directly or indirectly. So that saved us some work as I simply queried the templatelinks table to find places a module is being used.
+9.  Database exploration. Work progress [here](https://github.com/wikimedia/abstract-wikipedia-data-science/issues/9). I started out by trying to understand what the data in the tables represent and how they might be useful for us. There were lots of tables and it took some time to figure out the differences between the pagelinks, langlinks, templatelinks and iwlinks tables. I explored the source of wiki pages to find how the modules are used (by #invoke) which is different from linking a module, which just means the module is being talked about, either in talk pages, or places to link to the module page for reference. I found that mostly modules are used in template pages and the list of transclusions of any wiki lists _all_ the pages used in it, wither directly or indirectly. So that saved us some work as I simply queried the templatelinks table to find places a module is being used.
 
 10. Completed my work on collecting relevant data from databases. My initial hunch was that collecting info from databases is going to be fast because:
 
@@ -406,8 +406,8 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
 
 16. Learning Points: Some additional things I got to learn along the way in week 6 are:
 
-- MySQL by default does not do case-sensitive searches with `WHERE` clause. `LIKE` seems to do case-sensitive searches but it's results were not consistent from scripts and terminal for some reason. I searched and learnt about collations in MySQl tables but could not accomplish much with these information. At last I stumbled upon the simplest solution - `WHERE col1 = BINARY col2`. Notice that this performs much faster than `BINARY col1 = col2`.
-- There is a [tool in wikimedia](https://codesearch.wmcloud.org/search) that searches keywords across _all_ wikimedia codes. This can be used to search for code snippets and get some work done faster by looking at how people did it.
+    - MySQL by default does not do case-sensitive searches with `WHERE` clause. `LIKE` seems to do case-sensitive searches but it's results were not consistent from scripts and terminal for some reason. I searched and learnt about collations in MySQl tables but could not accomplish much with these information. At last I stumbled upon the simplest solution - `WHERE col1 = BINARY col2`. Notice that this performs much faster than `BINARY col1 = col2`.
+    - There is a [tool in wikimedia](https://codesearch.wmcloud.org/search) that searches keywords across _all_ wikimedia codes. This can be used to search for code snippets and get some work done faster by looking at how people did it.
 
 17. On week 7, I started data analysis of the various numeric data from the user-table. The first impression is that there are lots of nulls, which I analysed by looking into respective wiki database tables and concluded that certain columns in our user database need to be modified to have default value 0. Next most important observation is that the data is HIGHLY skewed. The only way to visualize anything is to plot in log scale, which is hard to internalize the extent of the data in reality. So I viewed the data in small intervals and for each column I tried to find some very basic initial heuristic to identify what modules are important. Like modules with number of transclusions > 1M are probably important, cause they are outliers. I wanted to do some interactive plotting so I could zoom in and view whatever I want, but with this amount of data, its too heavy and does not work :( . My data analysis is still going on, so more update can be found next week.
 
@@ -417,16 +417,31 @@ All Scribunto modules are in [`Modules` namespace](https://en.wikipedia.org/wiki
 
 20. Week 8 Update:
 
-- Continued with data analysis for the numeric columns. Took some time to analyse transcluded_in and transclusions in more depth. Did some source code analysis and thinking some form of clustering may be useful to identify similar codes (and so similar priority modules) had a talk about this with Jade.
-- Checked `mysql connection lost error` does not occur in PAWS and Jade tested it locally, it works there too! Created bug report in Phab [T272822](https://phabricator.wikimedia.org/T272822) and asked in IRC.
-- Page protection seems to have some new values that I couldn't understand. Understood from an answer in IRC that recent pages have page protection terms of user rights. i.e user with `X` rights can edit/move pages with `X` edit/move protection. Read up and tried to understand this more. Concluded that this isn't something universal across wikis, so I stuck to old page protection values as those are the majority.
-- Refactored code to move around connection and cursor objects' opening and closing. I had to ensure the connection and cursor were closed before the script went into a 1 minute sleep in-order to retry a query.
-- Side stuff: Found this amazing [one liner TOC](https://github.com/kmahelona/ipython_notebook_goodies) adder to jupyter notebook. It's temporary though, so after generating finalized TOC I copied the source from `browser inspect` and pasted in my markdown cell.
+    - Continued with data analysis for the numeric columns. Took some time to analyse transcluded_in and transclusions in more depth. Did some source code analysis and thinking some form of clustering may be useful to identify similar codes (and so similar priority modules) had a talk about this with Jade.
+    - Checked `mysql connection lost error` does not occur in PAWS and Jade tested it locally, it works there too! Created bug report in Phab [T272822](https://phabricator.wikimedia.org/T272822) and asked in IRC.
+    - Page protection seems to have some new values that I couldn't understand. Understood from an answer in IRC that recent pages have page protection terms of user rights. i.e user with `X` rights can edit/move pages with `X` edit/move protection. Read up and tried to understand this more. Concluded that this isn't something universal across wikis, so I stuck to old page protection values as those are the majority.
+    - Refactored code to move around connection and cursor objects' opening and closing. I had to ensure the connection and cursor were closed before the script went into a 1 minute sleep in-order to retry a query.
+    - Side stuff: Found this amazing [one liner TOC](https://github.com/kmahelona/ipython_notebook_goodies) adder to jupyter notebook. It's temporary though, so after generating finalized TOC I copied the source from `browser inspect` and pasted in my markdown cell.
 
 21. Week 9 Update:
 
-- Closed db-fetching task in phabricator [T270492](https://phabricator.wikimedia.org/T270492) after fixing bug [T272822](https://phabricator.wikimedia.org/T272822). The issue with `mysql connection lost` errors was that we were running it on `web` instead of `analytics` cluster as defaulted by toolforge python library. Tested by running all scripts, it seems to work now.
-- Fixed pageviews script to get proper page titles. I noticed API and database table page titles differ (Module:a or b vs a_or_b for example). So fetched page title from page table using page id instead of manually intervention.
-- Refactored pageviews script to fetch monthly data. Cleared the whole Scripts table and re-fetched everything due to Schema changing (changed certain columns default value from NULL to 0). This also led to re-starting the 15+ days running pageviews script.
-- Finished data analysis and created a PDF version of a summary. Shared with others.
-- Merged db-fetcher with develop branch and incorporated feedback from Jade.
+    - Closed db-fetching task in phabricator [T270492](https://phabricator.wikimedia.org/T270492) after fixing bug [T272822](https://phabricator.wikimedia.org/T272822). The issue with `mysql connection lost` errors was that we were running it on `web` instead of `analytics` cluster as defaulted by toolforge python library. Tested by running all scripts, it seems to work now.
+    - Fixed pageviews script to get proper page titles. I noticed API and database table page titles differ (Module:a or b vs a_or_b for example). So fetched page title from page table using page id instead of manually intervention.
+    - Refactored pageviews script to fetch monthly data. Cleared the whole Scripts table and re-fetched everything due to Schema changing (changed certain columns default value from NULL to 0). This also led to re-starting the 15+ days running pageviews script.
+    - Finished data analysis and created a PDF version of a summary. Shared with others.
+    - Merged db-fetcher with develop branch and incorporated feedback from Jade.
+
+22. Week 10-11 Update:
+
+    Started applying the findings from data analysis to find 'important' modules. As evident from my data analysis, the data we have is **heavily** skewed. We want pages with more transclusions/ more page links and so on, to be counted as important modules. But the number of such modules is very low and lost within in the 99.99999...th percentile. To fix this I changed the distribution slightly and regared the-percentile-a-value-is-in as the score. See more details of how I did that in the phabricator task [T272003](https://phabricator.wikimedia.org/T272003). Finally a module-score is calculated as a weighted sum of feature-scores. The weights can be altered by the user to prioritize number of lang links over transclusions for example.
+
+23. Week 12-13 Update:
+
+    After weekly discussion, Jade and I decided to split our tasks once again. I continued working on similarity analysis that Jade had started. Jade on the other hand started building the web interface. Week 12 was a hectic week. I was buried in tons of experiments and had to come up with a way to find out modules similar to each other. Jade started by using _edit distance_ (aka _levenshtein distance_) as features and performed DBSCAN clustering on it. The problems were:
+
+    - Edit distance is too slow to compute and takes `n x n` memory to create the distance matrix. Wouldn't be possible with our ~300k modules.
+    - One idea was to cluster the clusters manually, either by clustering multiple times with random subsets repeatedly (but we get no idea when our clustering is done), or by taking few core points from each cluster and performing clustering again. These manual methods would incorporate more errors in the already not-so-good clustering method.
+
+    To fix these I started out fresh and looked for other ways to make features. After a lot of experiments (see details in phabricator task [T270827](https://phabricator.wikimedia.org/T270827)) I decided to go with FastText word embedding (size 32) as features and OPTICS clustering algortihm. OPTICS is simialar to DBSCAN but optimized for space (so we can run clustering for all the modules at once). Unlike DBSCAN, which is optimized for speed. Next, I fixed the high number of noise that the algorithm detects by tuning the algorithm a bit, creating some pseudo-clusters from the noise, and finding ways to relate the clusters themselves. All of these are documented in a pdf uploaded in the phabricator task.
+
+24. Final Update: All of our work is now accessible through the web-interface of our tool: [abstract-wiki-ds.toolforge.org](https://abstract-wiki-ds.toolforge.org/). You will be able to select some or all wiki projects, some or all languages, and give your weights (or use the defaults) to generate a list of 'important modules' based of their scores. Click on any module to get a list of modules that are similar to it. Now users can easily start the process of merging modules and move towards a more language independent wikipedia - Abstract Wikipedia!
