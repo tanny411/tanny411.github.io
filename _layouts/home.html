@@ -4,6 +4,8 @@
   <div class="container-lg py-6 p-responsive text-center">
     {% include masthead.html metadata=true %}
 
+    <hr class="m-0"/>
+
     <div {% if site.style == 'dark' %}class="text-white"{% endif %}>
       {{ content }}
     </div>
@@ -43,6 +45,8 @@
         {% include thoughts.html %}
       </div>
     {% endunless %}
+
+    {% include scrollup.html %}
   </div>
 {% else %}
   <div class="d-md-flex min-height-full {% unless site.style == 'dark' %}border-md-bottom{% endunless %}">
