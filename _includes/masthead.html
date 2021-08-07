@@ -11,7 +11,7 @@
 </p>
 
 {% if include.metadata %}
-  <div class="f4 mb-6">
+  <div class="f4 mb-4">
     <a class="link-unstyled" target="_blank" href="https://drive.google.com/file/d/19li7TOot1MTWftzDQ0-WQDM9oKEHtjzC/view?usp=sharing">
       <button class="button button--pan">
         <span>Download Resume</span>
@@ -48,6 +48,27 @@
       {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
       <a href="/experience" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
         Experience
+      </a>
+    </div>
+
+    <div class="{{ metadata_styles }}">
+      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      <a href="#publications" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
+        Publications
+      </a>
+    </div>
+
+    <div class="{{ metadata_styles }}">
+      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      <a href="#skills" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
+        Skills
+      </a>
+    </div>
+
+    <div class="{{ metadata_styles }}">
+      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      <a href="#projects" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
+        Projects
       </a>
     </div>
 
