@@ -1,10 +1,13 @@
 <h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>My Interests</h2>
 <p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
-  Been doing some Data Analysis and Machine Learning for a while now. Practicing Deep Learning with Computer Vision and Natural Language Processing.
+  I enjoy exploiting data, performing data analysis and 
+  employing machine learning and deep learning technologies to solve real-life problems. 
+  I have experience with Natural Language Processing, Computer Vision, and combination of both.
+  Sometimes I also like to create web apps and dashboards.
 </p>
 <div class="d-flex flex-wrap gutter-condensed mb-4">
   {% for topic in site.topics %}
-    <div class="col-6 col-md-12 col-lg-6 col-xl-4 mb-3">
+    <div class="col-6 col-md-12 col-lg-3 col-xl-3 mb-3">
       {% include topic-card.html %}
     </div>
   {% endfor %}

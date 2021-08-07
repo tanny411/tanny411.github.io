@@ -1,4 +1,4 @@
-layout: sidebar
+layout: stacked
 style: light
 
 plugins:
@@ -28,9 +28,12 @@ projects:
   limit: 6
   give_list: true
   repo_list:
+    # - wikimedia/abstract-wikipedia-data-science
+    # - Authorship-Attribution-using-Transfer-Learning
     - Machine-Learning-Projects
-    - Competitive-Programming
     - GroupProject
+    - personal-tracker
+    - Competitive-Programming
   # following works when give_list is false 
   sort_by: pushed
   # sort_by options:
@@ -49,31 +52,61 @@ social_media:
   # hackerrank: your_username
   # instagram: your_username
   # keybase: your_username
-  linkedin: tanny411
   # mastodon: your_username
   # medium: your_username
   # stackoverflow: your_user_id
   # telegram: your_username
-  # twitter: your_username
   # unsplash: your_username
   # vk: your_username
   # website: http://your_website_url
+  scholar: I9-4uB8AAAAJ
+  # orcid: 0000-0001-6559-4493
   youtube: UCbT2Y0Kcy882q47P_Nl0vIA
+  twitter: AishaKh13954163
+  linkedin: tanny411
+  github: tanny411
   codeforces: tanny411
   lightoj: 34282
-  orcid: 0000-0001-6559-4493
-  scholar: I9-4uB8AAAAJ
 
 topics:
   - name: Data Analysis and Machine Learning
     web_url: https://en.wikipedia.org/wiki/Data_science
-    image_url: ./assets/images/ds.png
-      
+    image_url: ./assets/images/interests/data_analysis.png
+    width: 150
+    height: 100
+
   - name: Natural Language Processing
-    web_url: https://github.com/topics/nlp
-    image_url: ./assets/images/nlp.jpg
+    web_url: https://en.wikipedia.org/wiki/Natural_language_processing
+    image_url: ./assets/images/interests/nlp1.jpg
+    width: 150
+    height: 100
+
+  - name: Computer Vision
+    web_url: https://en.wikipedia.org/wiki/Computer_vision
+    image_url: ./assets/images/interests/cv2.jpg
+    width: 150
+    height: 120
 
   - name: Full Stack Web Development
     web_url: https://www.mongodb.com/mern-stack
     image_url: data:image/png;base64,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
-    
+    width: 100
+    height: 100
+
+papers:
+  - name: <strong>Khatun, A.</strong>, Rahman, A., & Islam, M. S. (2019, December). Authorship Attribution in Bangla literature using Character-level CNN. In 2019 22nd International Conference on Computer and Information Technology (ICCIT) (pp. 1-5). IEEE.
+    web_url: https://ieeexplore.ieee.org/abstract/document/9038560
+    image: ./assets/images/paper/ieee.png
+
+  - name: <strong>Khatun, A.</strong>, Rahman, A., Chowdhury, H. A., Islam, M. S., & Tasnim, A. (2020). A Subword Level Language Model for Bangla Language. In Proceedings of International Joint Conference on Computational Intelligence (pp. 385-396). Springer, Singapore.
+    web_url: https://link.springer.com/chapter/10.1007/978-981-15-3607-6_31
+    image: ./assets/images/paper/springer.jpg
+
+  - name: Chowdhury, H. A., Imon, M. A. H., Rahman, A., <strong>Khatun, A.</strong>, & Islam, M. S. (2019, December). A Continuous Space Neural Language Model for Bengali Language. In 2019 22nd International Conference on Computer and Information Technology (ICCIT) (pp. 1-6). IEEE.
+    web_url: https://ieeexplore.ieee.org/abstract/document/9038568
+    image: ./assets/images/paper/ieee.png
+
+  - name: A Transfer Learning approach on Authorship Attribution in Bangla Literature (Journal Under Review in ACM TALLIP)
+    web_url: #
+    image: ./assets/images/paper/acm.jpeg
+

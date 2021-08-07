@@ -1,0 +1,53 @@
+---
+---
+
+.button {
+	pointer-events: auto;
+	cursor: pointer;
+	background: #ffffff;
+	border: none;
+	padding: .75rem 3.5rem;
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	position: relative;
+	display: inline-block;
+}
+
+.button::before,
+.button::after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.button--pan {
+	font-family: aktiv-grotesk-extended, sans-serif;
+	font-weight: 700;
+	border: 4px solid #000;
+	// border-radius: 3rem;
+	overflow: hidden;
+	color: #fff;
+}
+
+.button--pan span {
+	position: relative;
+	mix-blend-mode: difference;
+}
+
+.button--pan::before {
+	content: '';
+	background: #000;
+	transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.button--pan:hover::before {
+	transform: translate3d(0,-100%,0);
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+	color: inherit;
+	text-decoration: inherit;
+  }

@@ -1,0 +1,8 @@
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Publications</h2>
+<div class="d-flex flex-wrap gutter-condensed mb-4 mt-4">
+  {% for paper in site.papers %}
+    <div class="col-12 mb-3">
+      {% include publication-card.html %}
+    </div>
+  {% endfor %}
+</div>

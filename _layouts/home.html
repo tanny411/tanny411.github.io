@@ -7,9 +7,9 @@
     <div {% if site.style == 'dark' %}class="text-white"{% endif %}>
       {{ content }}
     </div>
-
+    
     <div class="my-6">
-      {% include projects.html %}
+      {% include bio.html %}
     </div>
 
     {% if site.topics %}
@@ -17,6 +17,26 @@
         {% include interests.html %}
       </div>
     {% endif %}
+
+    <div class="my-6">
+      {% include experience_short.html %}
+    </div>
+    
+    <div class="my-6">
+      {% include education_short.html %}
+    </div>
+
+    <div class="my-6">
+      {% include publications.html %}
+    </div>
+    
+    <div class="my-6">
+      {% include skills.html %}
+    </div>
+    
+    <div class="my-6">
+      {% include projects.html %}
+    </div>
 
     {% unless posts_total == 0 %}
       <div class="my-6">
@@ -37,10 +57,20 @@
             {{ content }}
           </div>
         {% endunless %}
+        
+        {% include bio.html %}
 
         {% if site.topics %}
           {% include interests.html %}
         {% endif %}
+
+        {% include experience_short.html %}
+        
+        {% include education_short.html %}
+        
+        {% include publications.html %}
+        
+        {% include skills.html %}
         
         {% include projects.html %}
 
