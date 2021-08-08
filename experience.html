@@ -1,72 +1,200 @@
 ---
-layout: default
+layout: experience
 permalink: /experience
 ---
 
-<h2 class="cred-title">Experience</h2>
+<h2 class="cred-title" id="experience">Experience</h2>
 <div class="container timeline">
     
-    <div class="timeline-item" date-is='March 2020 - September 2020'>
-		<h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
-		<p>
-            Used various machine learning and deep learning techniques to identify data trends and performed 
-            predictive analysis including fall detection, server log analysis and OCR using Google Vision API 
-            hosted on AWS. Data analysis of Withings sleepmats readings for IDD individuals identifying various
-             data trends.
-		</p>
-	</div>
+      <div class="timeline-item" date-is='April 2021 - Present'>
+            <h1>Data Analyst <br/> Wikimedia Foundation</h1>
+            <p>As a contract data analyst, I work with the Search and Analytics team to analyze SPARQL queries along with Wikidata dump to help scale the wikidata query service. Analysis work is done using both spark (scala) and pyspark (python) on Hadoop clusters. 
+                  Ongoing analysis work: <a href="https://wikitech.wikimedia.org/w/index.php?title=User:AKhatun#Subpages">wikitech/User:AKhatun</a>.
+                  <ul>
+                        <li>Extracted information from SPARQL queries and saved as a hive table to perform further analysis on it.</li>
+                        <li>Performed data analysis on Wikidata dumps and combined it with user queries analysis to identify the most frequently searched Wikidata subgraphs.</li>
+                  </ul>
+            </p>
+
+      </div>
+
+      <div class="timeline-item" date-is='December 2020 - February 2021'>
+            <h1>Outreachy Intern<br/> Wikimedia Foundation</h1>
+            <p>Selected as an Intern in Outreachy to work with the Abstract Wikipedia project under Wikimedia Foundation. 
+               Work hosted in <a href="https://github.com/wikimedia/abstract-wikipedia-data-science">GitHub</a> 
+               and <a href="https://phabricator.wikimedia.org/T263678">Phabricator</a>.
+                  <ul>
+                        <li>Created a data pipeline to fetch Lua modules across all wikis and performed data analysis to identify important modules for centralizing in Abstract Wikipedia.</li>
+                        <li>Performed source code similarity analysis using unsupervised machine learning towards a more language-independent Wikipedia.</li>
+                  </ul>
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='March 2020 - September 2020'>
+            <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
+            <p>Performed data analysis and applied machine learning algorithms on computer vision and time-series data for pattern recognition and prediction generation.
+                  <ul>
+                        <li>Leveraged Google Vision OCR and hosted a AWS API to extract SpO2 and heart-rate measurements from images of pulse oximeters to enable swift detection of COVID-19 signs.</li>
+                        <li>Used sensor readings from sleep mats to implement a comprehensive sleep profile dashboard (sleep state diagrams, bed in/out statistics) of IDD individuals, thus helping caregivers tailor their assistance and receive emergency notifications.</li>
+                        <li>Analyzed production server logs to identify ideal downtime for application release. Used historical data to plot trends in usage and produced reports.</li>
+                        <li>Implemented a fall detection system using inertial sensor readings from smartwatches with the help of machine learning.</li>
+                  </ul>
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='November 2018 - June 2020'>
+            <h1>Research Assistant <br/> SUST NLP Lab</h1>
+            <p>Worked on developing larger datasets and implementing transfer learning based deep learning approaches for Authorship Attribution in Bengali Literature, thus far surpassing the existing systems. 
+               Work available in <a href="https://github.com/tanny411/Authorship-Attribution-using-Transfer-Learning/">GitHub</a>. 
+               Datasets available in <a href="https://data.mendeley.com/datasets/6d9jrkgtvv/4">Mendeley</a>.
+                  <ul>
+                        <li>Created multi-purpose language models with various tokenization methods and pre-training datasets.</li>
+                        <li>Developed deep learning architectures for authorship attribution in Bengali Literature. Finally overcoming the barriers of hand-drawn features, which were typical in this field, implemented transfer learning with language model pretraining to identify authors by analyzing their writing patterns. Also explored the effect of tokenization and pre-training dataset on the final task.</li>
+                        <li>Performed character-level text classification with mixture of recurrent and convolutional networks, additionally pretrained character embedding on several large datasets to improve performance.</li>
+                        <li>Curated and cleaned a large long-text authorship attribution dataset to assist in model development and evaluation without data acquisition costs.</li>
+                  </ul>
+              Related Publications:
+                  <ul>
+                        <li>A Continuous Space Neural Language Model for Bengali Language <a href="https://ieeexplore.ieee.org/abstract/document/9038568" >(ICCIT, 2019. IEEE)</a></li>
+                        <li>A Subword Level Language Model for Bangla Language <a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_31" >(IJCCI, 2019. Springer)</a></li>
+                        <li>Authorship Attribution in Bangla literature using Character-level CNN <a href="https://ieeexplore.ieee.org/abstract/document/9038560" >(ICCIT, 2019. IEEE)</a></li>
+                        <li>A Transfer Learning approach on Authorship Attribution in Bangla Literature <a href="" >(Journal paper Under Review)</a></li>
+                  </ul>
+            </p>
+      </div>
 	
 </div>
 
-<h2 class="cred-title">Education</h2>
+<h2 class="cred-title" id="vexperience">Volunteer Experience</h2>
+<div class="container timeline">
+
+      <div class="timeline-item" date-is='December 2020'>
+            <h1>Machine Learning Workshops</h1>
+            <p>
+                  Conducted a series of IEEE beginners Machine Learning Workshop.
+                  Workshop materials available in <a href="https://github.com/tanny411/ML-Workshop">GitHub</a>.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='Jan 2018 - July 2018'>
+            <h1>Competitive performing trainer</h1>
+            <p>Trained junior year undergraduate students for Competitive Programming.</p>
+      </div>
+
+</div>
+
+<h2 class="cred-title" id="education">Education</h2>
 <div class="container timeline">
 
     <div class="timeline-item" date-is='January 2016- February 2020'>
 		<h1>Shahjalal University of Science and Technology</h1>
-		<p>Completed undergraduate thesis on Authorship Attribution on Bangla Literature. 
-            Applied deep learning NLP techniques to achieve high performing systems. Publications during the course of my thesis:
-            <ul>
-                <li>A Continuous Space Neural Language Model for Bengali Language <a href="https://ieeexplore.ieee.org/abstract/document/9038568" >(ICCIT, 2019. IEEE)</a></li>
-                <li>A Subword Level Language Model for Bangla Language <a href="https://link.springer.com/chapter/10.1007/978-981-15-3607-6_31" >(IJCCI, 2019. Springer)</a></li>
-                <li>Authorship Attribution in Bangla literature using Character-level CNN <a href="https://ieeexplore.ieee.org/abstract/document/9038560" >(ICCIT, 2019. IEEE)</a></li>
-                <li>A Transfer Learning approach on Authorship Attribution in Bangla Literature <a href="" >(Journal paper Under Review)</a></li>
-            </ul>
-		</p>
+		<h5>B.Sc. in Computer Science and Engineering</h5>
+            <h6>CGPA: 3.89/4.00 (2nd in Class)</h6>
+		<p>
+                  Completed undergraduate thesis on Authorship Attribution in Bangla Literature. 
+                  Applied deep learning NLP techniques to achieve high performing scalable systems.<br>
+            </p>
+            <p>
+                  Courses include: Algorithm Design and Analysis, Data Structure, Database System, 
+                  Object Oriented Programming, Software Engineering and Design Patterns, Technical Writing and Presentation, 
+                  Artificial Intelligence, Introduction to Data Science, Machine Learning
+            </p>
     </div>
+</div>
 
+<h2 class="cred-title" id="awards">Honours and Awards</h2>
+<div class="container timeline">
+
+      <div class="timeline-item" date-is='December 2020 - March 2021'>
+            <h1>Outreachy Internship</h1>
+            <p>
+                  Selected as one of 54 Outreachy Interns among 1000+ applicants through contributions in various Open Source projects.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='June 2019 - October 2019'>
+            <h1>Secure and Private AI scholarship</h1>
+            <p>
+                  Secure and Private AI scholarship from Facebook. One of 300 out of 6000 candidates selected worldwide.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='June 2019 - October 2019'>
+            <h1>Best Research Poster Award</h1>
+            <p>
+                  2nd Place, Best Research Poster Award, ICBSLP (International Conference).
+                  Presented our work on Authorship Attribution in Bengali Literature using transfer learning
+                  and compared it to existing systems and character-level CNN architectures.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='Jan 2016 - Dec 2019'>
+            <h1>Education Board Scholarship</h1>
+            <p>
+                  Education Board Scholarship during undergraduate (4 years long) for best performance nation-wide awarded by the Education Board, Government of Bangladesh.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='2016 - 2018'>
+            <h1>Programming Contests</h1>
+            <p>
+                  <ul>
+                        <li>5th in National Girls Programming Contest 2017</li>
+                        <li>7th in National Girls Programming Contest 2018</li>
+                        <li>8th in NSU Inter-University Girls Programming Contest, 2018</li>
+                        <li>ACM ICPC ASIA Regional Programming Contest, Dhaka Site 2018, 34th rank.</li>
+                  </ul>
+            </p>
+      </div>
+
+</div>
+
+<h2 class="cred-title" id="onlinecourses">Online Courses</h2>
+<div class="container timeline">
 	<div class="timeline-item" date-is='October 2019 - December 2019'>
 		<h1>Computer Vision Nanodegree</h1>
 		<p>
-            This nanodegree was the 2<sup>nd</sup> phase of the Secure and Private AI Facebook 
-            Udacity Scholarship. Learned and applied Image Processing, Transfer learning, Kalman filters, 
-            Graph SLAM algorithm. Completed projects include Day-Night Detection, Facial keypoint detection, 
-            Object Detection, Image Captioning, Sentiment analysis and, Object Localization and Mapping.
+                  This nanodegree was the 2<sup>nd</sup> phase of the Secure and Private AI Facebook 
+                  Udacity Scholarship. Learned and applied Image Processing, Transfer learning, Kalman filters, 
+                  Graph SLAM algorithm. Completed projects include Day-Night Detection, Facial keypoint detection, 
+                  Object Detection, Image Captioning, Sentiment analysis and, Object Localization and Mapping.
 		</p>
 	</div>
 	
-	<div class="timeline-item" date-is='August 2019 - September 2019'>
+      <div class="timeline-item" date-is='August 2019 - September 2019'>
 		<h1>Data Scientist with Python</h1>
 		<p>
-            A bundle of Datacamp courses for python, data cleaning, manipulation 
-            and analysis, pandas, data visualization, SQL, statistical thinking and, machine learning.
+                  A bundle of Datacamp courses for python, data cleaning, manipulation 
+                  and analysis, pandas, data visualization, SQL, statistical thinking and, machine learning.
 		</p>
-    </div>
+      </div>
     
-    <div class="timeline-item" date-is='August 2019'>
-		<h1>Practical Deep Learning for Coders</h1>
-		<p>
-            Jeremy Howard
-		</p>
-    </div>
+      <div class="timeline-item" date-is='August 2019'>
+            <h1>Practical Deep Learning for Coders</h1>
+            <p>
+                  Jeremy Howard
+            </p>
+      </div>
     
-    <div class="timeline-item" date-is='December 2018 - April 2019'>
-		<h1>Machine Learning & Deep Learning</h1>
-		<p>
-            Machine learning course and Deep learning specialization by Andrew Ng, Coursera.
-            Thsese courses cover everything from the basics of machine learning and neural networks from scratch to 
-            deep learning techniques in computer vision and NLP with CNN, RNN, GRU and LSTMs, hyperparameter tuning
-             and structuring machine learning projects.
-		</p>
-    </div>
+      <div class="timeline-item" date-is='December 2018 - April 2019'>
+            <h1>Machine Learning & Deep Learning</h1>
+            <p>
+                  Machine learning course and Deep learning specialization by Andrew Ng, Coursera.
+                  Thsese courses cover everything from the basics of machine learning and neural networks from scratch to 
+                  deep learning techniques in computer vision and NLP with CNN, RNN, GRU and LSTMs, hyperparameter tuning
+                  and structuring machine learning projects.
+            </p>
+      </div>
+
+      <div class="timeline-item" date-is='July 2018 - September 2019'>
+            <h1>​Oxford University 1millionWomentoTech ​Summer of Code</h1>
+            <p>
+                  DIY (Do It Yourself) Track.<br>
+                  This summer of code was my introduction to Python and Machine Learning for the first tme ever. 
+                  Tons of amazing volunteer mentors helped me a lot, from setting up python to understanding support vector machines, random forests.
+                  Setting up python and anaconda, in windows(!), was quite messy. Multiple python and too many incompatibality issues. I have a come a long way since then.
+                  Did a lot of assignments and solved ML problems with the completely hands workshops in this SoC.
+            </p>
+      </div>
 	
 </div>

@@ -1,15 +1,51 @@
 <h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Experience</h2>
-
+<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
+  See details, volunteer experience, and awards in the <a href="/experience">experience and education page</a>.
+</p>
 <div class="container timeline text-left">
     
+  <div class="timeline-item" date-is='April 2021 - Present'>
+      <h1>Data Analyst <br/> Wikimedia Foundation</h1>
+      <p>
+        As a contract data analyst, I work with the Search and Analytics team to help scale the wikidata query service. 
+        Performed data analysis on Wikidata dumps and combined it with user SPARQL queries analysis to identify the most frequently searched Wikidata subgraphs.
+        Ongoing analysis work: <a href="https://wikitech.wikimedia.org/w/index.php?title=User:AKhatun#Subpages">wikitech/User:AKhatun</a>.
+      </p>
+
+  </div>
+
+  <div class="timeline-item" date-is='December 2020 - February 2021'>
+      <h1>Outreachy Intern<br/> Wikimedia Foundation</h1>
+      <p>
+        Selected as an Intern in Outreachy to work with the Abstract Wikipedia project under Wikimedia Foundation. 
+        Performed data analysis to identify important modules for centralizing in Abstract Wikipedia.
+        Source code similarity analysis done using unsupervised machine learning towards a more language-independent Wikipedia.
+        Work hosted in <a href="https://github.com/wikimedia/abstract-wikipedia-data-science">GitHub</a> 
+        and <a href="https://phabricator.wikimedia.org/T263678">Phabricator</a>.
+      </p>
+  </div>
+
   <div class="timeline-item" date-is='March 2020 - September 2020'>
-    <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
-    <p>
-            Used various machine learning and deep learning techniques to identify data trends and performed 
-            predictive analysis including fall detection, server log analysis and OCR using Google Vision API 
-            hosted on AWS. Data analysis of Withings sleepmats readings for IDD individuals identifying various
-            data trends.
-    </p>
+      <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
+      <p>
+        Performed data analysis and applied machine learning algorithms on computer vision and time-series data for pattern recognition and prediction generation.
+        Used state-of-art face detection models, OCRs, and sensor readings for fall detection. Analysed sleep patterns
+        from sleep-mats to identify abnormal activities at night, and analysed server logs to identify ideal downtime for application release.
+      </p>
+  </div>
+
+  <div class="timeline-item" date-is='November 2018 - June 2020'>
+      <h1>Research Assistant <br/> SUST NLP Lab</h1>
+      <p>Worked on developing large datasets and implementing transfer learning based deep learning approaches for Authorship Attribution in Bengali Literature, thus far surpassing the existing systems. 
+        Work available in <a href="https://github.com/tanny411/Authorship-Attribution-using-Transfer-Learning/">GitHub</a>. 
+        Datasets available in <a href="https://data.mendeley.com/datasets/6d9jrkgtvv/4">Mendeley</a>.
+            <ul>
+                  <li>Created multi-purpose language models with various tokenization methods and pre-training datasets.</li>
+                  <li>Developed deep learning architectures for authorship attribution in Bengali Literature. Also explored the effect of tokenization and pre-training dataset on the final task.</li>
+                  <li>Performed character-level text classification with mixture of recurrent and convolutional networks.</li>
+                  <li>Curated and cleaned a large long-text authorship attribution dataset to assist in model development and evaluation.</li>
+            </ul>
+      </p>
   </div>
 
 </div>
