@@ -35,7 +35,7 @@ linkedin:
   classname: linkedin
   profile_url_prefix: https://www.linkedin.com/in/
   share_url_prefix: https://www.linkedin.com/shareArticle?mini=true&url=
-  icon_svg: '<img src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-512.png" height="40"/>'
+  icon_svg: '<img src="https://cdn3.iconfinder.com/data/icons/social-media-black-white-2/512/BW_Linkedin_glyph_svg-512.png" height="30"/>'
   # '<svg height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M3.94 2A2 2 0 1 1 2 0a2 2 0 0 1 1.94 2zM4 5.48H0V18h4zm6.32 0H6.34V18h3.94v-6.57c0-3.66 4.77-4 4.77 0V18H19v-7.93c0-6.17-7.06-5.94-8.72-2.91z" fill="#959da5"/></svg>'
 
 mastodon:
@@ -64,7 +64,7 @@ twitter:
   classname: twitter
   profile_url_prefix: https://www.twitter.com/
   share_url_prefix: https://twitter.com/share?url=
-  icon_svg: <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" height="40"/>
+  icon_svg: <img src="https://img.icons8.com/ios-filled/50/000000/twitter.png" height="30"/>
   # '<svg height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 273.5 222.3"><path d="M273.5 26.3a109.77 109.77 0 0 1-32.2 8.8 56.07 56.07 0 0 0 24.7-31 113.39 113.39 0 0 1-35.7 13.6 56.1 56.1 0 0 0-97 38.4 54 54 0 0 0 1.5 12.8A159.68 159.68 0 0 1 19.1 10.3a56.12 56.12 0 0 0 17.4 74.9 56.06 56.06 0 0 1-25.4-7v.7a56.11 56.11 0 0 0 45 55 55.65 55.65 0 0 1-14.8 2 62.39 62.39 0 0 1-10.6-1 56.24 56.24 0 0 0 52.4 39 112.87 112.87 0 0 1-69.7 24 119 119 0 0 1-13.4-.8 158.83 158.83 0 0 0 86 25.2c103.2 0 159.6-85.5 159.6-159.6 0-2.4-.1-4.9-.2-7.3a114.25 114.25 0 0 0 28.1-29.1" fill="#959da5"/></svg>'
 
 unsplash:
@@ -93,7 +93,7 @@ github:
   name: GitHub
   classname: github
   profile_url_prefix: https://www.github.com/
-  icon_svg: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="40" height="40" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><g fill="#000" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20s20-8.954 20-20S35.046 4 24 4zM0 24C0 10.745 10.745 0 24 0s24 10.745 24 24s-10.745 24-24 24S0 37.255 0 24z"/><path d="M19.183 45.471c-.193-.25-.193-2.474 0-6.673c-2.072.072-3.38-.072-3.927-.431c-.82-.54-1.64-2.2-2.367-3.371c-.728-1.171-2.343-1.356-2.995-1.618c-.652-.262-.816-1.328 1.797-.522c2.613.807 2.74 3.005 3.565 3.518c.824.514 2.795.29 3.689-.122c.893-.412.827-1.944.986-2.551c.202-.567-.508-.693-.524-.697c-.872 0-5.453-.997-6.712-5.433c-1.258-4.437.363-7.337 1.228-8.584c.576-.83.525-2.602-.153-5.313c2.463-.315 4.364.46 5.703 2.326c.002.01 1.755-1.043 4.527-1.043c2.772 0 3.755.858 4.514 1.043c.759.185 1.366-3.266 6.053-2.326c-.979 1.923-1.798 4.326-1.173 5.313c.626.988 3.08 4.128 1.572 8.584c-1.005 2.97-2.98 4.781-5.928 5.433c-.338.107-.507.281-.507.521c0 .36.457.4 1.115 2.087c.439 1.124.47 4.336.095 9.635c-.95.242-1.69.404-2.22.488c-.937.147-1.954.23-2.954.261c-1 .032-1.348.029-2.73-.1a19.798 19.798 0 0 1-2.654-.425z"/></g></svg>'
+  icon_svg: '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" style="vertical-align: -0.125em;" width="30" height="30" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48"><g fill="#000" fill-rule="evenodd" clip-rule="evenodd"><path d="M24 4C12.954 4 4 12.954 4 24s8.954 20 20 20s20-8.954 20-20S35.046 4 24 4zM0 24C0 10.745 10.745 0 24 0s24 10.745 24 24s-10.745 24-24 24S0 37.255 0 24z"/><path d="M19.183 45.471c-.193-.25-.193-2.474 0-6.673c-2.072.072-3.38-.072-3.927-.431c-.82-.54-1.64-2.2-2.367-3.371c-.728-1.171-2.343-1.356-2.995-1.618c-.652-.262-.816-1.328 1.797-.522c2.613.807 2.74 3.005 3.565 3.518c.824.514 2.795.29 3.689-.122c.893-.412.827-1.944.986-2.551c.202-.567-.508-.693-.524-.697c-.872 0-5.453-.997-6.712-5.433c-1.258-4.437.363-7.337 1.228-8.584c.576-.83.525-2.602-.153-5.313c2.463-.315 4.364.46 5.703 2.326c.002.01 1.755-1.043 4.527-1.043c2.772 0 3.755.858 4.514 1.043c.759.185 1.366-3.266 6.053-2.326c-.979 1.923-1.798 4.326-1.173 5.313c.626.988 3.08 4.128 1.572 8.584c-1.005 2.97-2.98 4.781-5.928 5.433c-.338.107-.507.281-.507.521c0 .36.457.4 1.115 2.087c.439 1.124.47 4.336.095 9.635c-.95.242-1.69.404-2.22.488c-.937.147-1.954.23-2.954.261c-1 .032-1.348.029-2.73-.1a19.798 19.798 0 0 1-2.654-.425z"/></g></svg>'
   
 codeforces:
   name: Codeforces
