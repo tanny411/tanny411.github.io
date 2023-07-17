@@ -28,12 +28,13 @@ projects:
   limit: 6
   give_list: true
   repo_list:
-    # - wikimedia/abstract-wikipedia-data-science
-    # - Authorship-Attribution-using-Transfer-Learning
+    - GPT3-Reliability-Check Public 
+    - Wikidata-WDQS-Analysis
+    - Authorship-Attribution-using-Transfer-Learning
+    - wikimedia/abstract-wikipedia-data-science
+    - Competitive-Programming
     - Machine-Learning-Projects
     - GroupProject
-    - personal-tracker
-    - Competitive-Programming
   # following works when give_list is false 
   sort_by: pushed
   # sort_by options:
@@ -60,24 +61,24 @@ social_media:
   # vk: your_username
   # website: http://your_website_url
   scholar: I9-4uB8AAAAJ
-  # orcid: 0000-0001-6559-4493
+  orcid: 0000-0001-6559-4493
   youtube: UCbT2Y0Kcy882q47P_Nl0vIA
-  twitter: AishaKh13954163
+  twitter: a2khatun
   linkedin: tanny411
   github: tanny411
   codeforces: tanny411
   lightoj: 34282
 
 topics:
-  - name: Data Analysis and Machine Learning
-    web_url: https://en.wikipedia.org/wiki/Data_science
-    image_url: ./assets/images/interests/data_analysis.png
-    width: 150
-    height: 100
-
   - name: Natural Language Processing
     web_url: https://en.wikipedia.org/wiki/Natural_language_processing
     image_url: ./assets/images/interests/nlp1.jpg
+    width: 150
+    height: 100
+
+  - name: Data Analysis and Machine Learning
+    web_url: https://en.wikipedia.org/wiki/Data_science
+    image_url: ./assets/images/interests/data_analysis.png
     width: 150
     height: 100
 
@@ -94,6 +95,14 @@ topics:
     height: 100
 
 papers:
+  - name: "Khatun, A., & Brown, D. G. (2023). Reliability Check: An Analysis of GPT-3's Response to Sensitive Topics and Prompt Wording. Accepted at TrustNLP Workshop, ACL 2023."
+    web_url: https://arxiv.org/abs/2306.06199
+    image: ./assets/images/paper/acl.png
+  
+  - name: <strong>Khatun, A.</strong> et al. (2021) Authorship attribution in Bangla literature (AABL) via transfer learning using ulmfit, ACM Transactions on Asian and Low-Resource Language Information Processing. 
+    web_url: https://doi.org/10.1145/3530691
+    image: ./assets/images/paper/acm.jpeg
+
   - name: <strong>Khatun, A.</strong>, Rahman, A., & Islam, M. S. (2019, December). Authorship Attribution in Bangla literature using Character-level CNN. In 2019 22nd International Conference on Computer and Information Technology (ICCIT) (pp. 1-5). IEEE.
     web_url: https://ieeexplore.ieee.org/abstract/document/9038560
     image: ./assets/images/paper/ieee.png
@@ -106,7 +115,4 @@ papers:
     web_url: https://ieeexplore.ieee.org/abstract/document/9038568
     image: ./assets/images/paper/ieee.png
 
-  - name: A Transfer Learning approach on Authorship Attribution in Bangla Literature (Journal Under Review in ACM TALLIP)
-    web_url: #
-    image: ./assets/images/paper/acm.jpeg
 
