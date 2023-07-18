@@ -28,10 +28,10 @@ projects:
   limit: 6
   give_list: true
   repo_list:
-    - GPT3-Reliability-Check Public 
+    - GPT3-Reliability-Check 
     - Wikidata-WDQS-Analysis
     - Authorship-Attribution-using-Transfer-Learning
-    - wikimedia/abstract-wikipedia-data-science
+    # - wikimedia/abstract-wikipedia-data-science
     - Competitive-Programming
     - Machine-Learning-Projects
     - GroupProject
