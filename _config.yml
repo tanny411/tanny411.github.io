@@ -95,7 +95,7 @@ topics:
     height: 100
 
 papers:
-  - name: "Khatun, A., & Brown, D. G. (2023). Reliability Check: An Analysis of GPT-3's Response to Sensitive Topics and Prompt Wording. Accepted at TrustNLP Workshop, ACL 2023."
+  - name: "<strong>Khatun, A.</strong>, & Brown, D. G. (2023). Reliability Check: An Analysis of GPT-3's Response to Sensitive Topics and Prompt Wording. Accepted at TrustNLP Workshop, ACL 2023."
     web_url: https://arxiv.org/abs/2306.06199
     image: ./assets/images/paper/acl.png
   
