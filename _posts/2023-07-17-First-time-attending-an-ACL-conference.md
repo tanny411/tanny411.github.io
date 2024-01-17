@@ -1,11 +1,19 @@
+# Before
+
+You would know if you are attending a conference way before the actual conference. For students, you would probably have written a paper and had it accepted.
+
+# During
+
+# After
+
 - Do Tutorials!
 - Do Workshops!
 - In workshops, since there are lesser number of people, dont leave the room in coffee breaks and directly go talk to paper presenters and keynote presenters
 - In main conference sessions, come early, sit in the front, see presenters' faces clearly, see where they sit after presenting, go talk to them immediately after session. Maybe join lunch/coffee.
-- talk to all companies, ask them for external party/mixer invites ON THE FIRST DAY.
+- Talk to all companies, ask them for external party/mixer invites ON THE FIRST DAY.
 - CHECK EMAIL always. Make sure to receive notifications for mixer invites immediately.
 - Attend ALL poster sessions. Make personal connections with presenters.
 - Randomly say hi to people and start talking.
 - Read all paper abstracts before conference, read full papers of the very relevant ones if available, stalk the authors you want to talk to beforehand, remember their faces, and keep a note of when and where they are going to be during the conference
 - Meet more grad students, have lunch/dinner with them
-- take pics of posters, take slide pics. Also make note of *how* awesome people are presenting, how their slides are formatted, and how much they put in slides vs speak.
+- Take pics of posters, take slide pics. Also make note of *how* awesome people are presenting, how their slides are formatted, and how much they put in slides vs speak.
