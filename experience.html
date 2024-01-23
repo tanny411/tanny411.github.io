@@ -5,25 +5,66 @@ permalink: /experience
 
 <h2 class="cred-title" id="experience">Experience</h2>
 <div class="container timeline">
-    
+
+      <div class="timeline-item" date-is='September 2022 - June 2024'>
+            <h1>Graduate Research Student <br/> University of Waterloo</h1>
+            <p>I am working with Professor Daniel G. Brown on the ability of LLMs to respond appropriately and consistently to sensitive topics with prompt variations. We analyzed over 30 models, both open and closed source,
+                  compared their performance in various areas like task understanding and response consistency. Surprisingly, our findings indicate that most models, even some large open-source models
+                  have a difficult time answering simple Yes/No questions and can barely understand the task at hand. They are prone to changing their responses with slight variations in prompt wording and have different responses
+                  in different settings. These findings warn us against using LLMs for Q/A without proper planning and testing given their limited instruction instruction-following and task-understandig capacity.
+                  <ul>
+                        <li>Analyzed the capabilities and limitations of LLMs (Large Language Models) in assessing and updating sensitive statements (e.g. stereotypes, conspiracies, etc). Used HuggingFace, Python, and Tableau.</li>
+                        <li>Identified appropriate LLMs by creating a dashboard based on fact-checking, bias detection and instruction-following abilities across 37 open and closed source models. <a href="https://public.tableau.com/views/tableau_analysis_17014000557090/Sheet1a">Link.</a></li>
+                        <li>Formulated story worlds and seamless entertaining stories by tweaking the information retention and critical assessment ability of LLMs based on aforementioned research findings.</li>
+                  </ul>
+              Related Publications:
+                  <ul>
+                        <li>A Study on Large Language Models' Limitations in Multiple-Choice Question Answering. <a href="https://arxiv.org/abs/2401.07955">(Arxiv)</a></li>
+                        <li>Reliability Check: An Analysis of GPT-3’s Response to Sensitive Topics and Prompt Wording. <a href="https://aclanthology.org/2023.trustnlp-1.8/" >(TrustNLP 2023. ACL)</a></li>
+                  </ul>
+            </p>
+      </div>
+
       <div class="timeline-item" date-is='February 2023 - Present'>
             <h1>Research Data Scientist (NLP) <br/> Wikimedia Foundation</h1>
-            <p>I worked with the Research Team as a Research Data Scientist (NLP) to develop Copyediting as a structured task. To increase and maintain the standard of Wikipedia articles, it is important to ensure articles don't have typos, spelling, or grammatical errors. While there are ongoing efforts to automatically detect "commonly misspelled" words in English Wikipedia, most other languages are left behind. We intend to find ways to detect errors in articles in all languages in an automated fashion.
-                  We used Wiktionary to curate a list of commonly misspelled words and detected misspellings in Wikipedia articles of all languages.  
-                  Analysis work: <a href="https://meta.wikimedia.org/wiki/Research:Copyediting_as_a_structured_task">Research:Copyediting_as_a_structured_task</a>.
-                  <br>
-                  Currently, I am working on addressing deployment bottlenecks and improving the Wikipedia link recommendation system accuracy by creating a language-agnostic model to replace the 300+ individual language-dependent models. This ensures we deploy few models instead of 300+ models for each language, as well as improve low-resource languages that do not have enough links to train a model.
-                  Meta page: <a href="https://meta.wikimedia.org/wiki/Research:Link_recommendation_model_for_add-a-link_structured_task">Research:Link_recommendation_model</a>, Code: <a href="https://gitlab.wikimedia.org/akhatun/research-mwaddlink">GitLab</a>.
+            <p>   I worked with the Research Team as a Research Data Scientist (NLP) to develop Copyediting as a structured task.
+                  <a href="https://meta.wikimedia.org/wiki/Research:Copyediting_as_a_structured_task">Meta page</a>, 
+                  <a href="https://meta.wikimedia.org/wiki/Research:Copyediting_as_a_structured_task/Common_misspellings_wiktionary">Report</a>,
+                  <a href="https://gitlab.wikimedia.org/repos/research/copyedit-common-misspellings">Code</a>.
+                  
+                  <ul>
+                        <li>While there are ongoing efforts to automatically detect "commonly misspelled" words in English Wikipedia, most other languages are left behind.  
+                        We increased the standard of articles through automated copy-editing by curating and detecting commonly misspelled words in 100+ languages. </li>
+                        <li>Used Python and PySpark to extract and analyze Wiktionary data and to detect misspellings in Wikipedia.</li>
+                  </ul>
+
+                  Currently, I am working on improving the link-recommendation system.
+                  <a href="https://meta.wikimedia.org/wiki/Research:Link_recommendation_model_for_add-a-link_structured_task">Meta page</a>, 
+                  <a href="https://meta.wikimedia.org/wiki/Research:Improving_multilingual_support_for_link_recommendation_model_for_add-a-link_task">Report</a>
+                  <a href="https://gitlab.wikimedia.org/akhatun/research-mwaddlink">Code</a>.
+                  
+                  <ul>
+                        <li>Improved <a href="https://gitlab.wikimedia.org/repos/research/wiki-nlp-tools">mwtokenizer</a> to accommodate non-whitespace languages and improve
+                              tokenization for languages with special sentence ending symbols.</li>
+                        <li>Improved performance of the link-recommendation system for 12 out of 23 failing languages by incorporating mwtokenizer.</li>
+                        <li>Addressed deployment bottlenecks and improved the Wikipedia link recommendation system by creating a language-agnostic model to replace the 
+                            300+ individual language-dependent models.</li>
+                        <li>Used Python, Sklearn, and Wikipedia2Vec to accomplish these tasks.</li>
+                  </ul>
+                  
             </p>
       </div>
       
       <div class="timeline-item" date-is='April 2021 - August 2022'>
             <h1>Data Analyst <br/> Wikimedia Foundation</h1>
-            <p>As a contract data analyst, I worked with the Search and Analytics team to analyze SPARQL queries along with Wikidata dump to help scale the wikidata query service. Analysis work is done using both spark (scala) and pyspark (python) on Hadoop clusters. 
+            <p>As a contract data analyst, I worked with the Search and Analytics team to analyze SPARQL queries along with Wikidata dump to help scale the wikidata query service. 
+                  Analysis work is done using both Spark (Scala) and PySpark (Python) on Hadoop clusters. 
                   Analysis work: <a href="https://wikitech.wikimedia.org/w/index.php?title=User:AKhatun#Subpages">wikitech/User:AKhatun</a>.
                   <ul>
+                        <li>Informed business decisions to reduce data import speed and query timeouts in Wikidata Query Service by analyzing Wikidata to find large and most frequently queried subgraphs. Analysis was done using PySpark and SQL.</li>
                         <li>Extracted information from SPARQL queries and saved as a hive table to perform further analysis on it.</li>
                         <li>Performed data analysis on Wikidata dumps and combined it with user queries analysis to identify the most frequently searched Wikidata subgraphs.</li>
+                        <li>Enabled regular Wikidata graph and query statistics monitoring by creating a pipeline using Airflow, Hadoop, and Spark that performs data analysis, calculates, and saves metrics regularly. </li>
                   </ul>
             </p>
 
@@ -50,10 +91,11 @@ permalink: /experience
             <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
             <p>Performed data analysis and applied machine learning algorithms on computer vision and time-series data for pattern recognition and prediction generation.
                   <ul>
-                        <li>Leveraged Google Vision OCR and hosted a AWS API to extract SpO2 and heart-rate measurements from images of pulse oximeters to enable swift detection of COVID-19 signs.</li>
-                        <li>Used sensor readings from sleep mats to implement a comprehensive sleep profile dashboard (sleep state diagrams, bed in/out statistics) of IDD individuals, thus helping caregivers tailor their assistance and receive emergency notifications.</li>
+                        <li>Improved in-office attendance application with high-accuracy face detection in image and video footage.</li>
                         <li>Analyzed production server logs to identify ideal downtime for application release. Used historical data to plot trends in usage and produced reports.</li>
-                        <li>Implemented a fall detection system using inertial sensor readings from smartwatches with the help of machine learning.</li>
+                        <li>Optimized care home efficiency by leveraging Google Vision OCR and hosted an AWS API to extract SpO2 and heart-rate measurements from images of pulse oximeters to enable swift detection of COVID-19 signs.</li>
+                        <li>Used sensor readings from sleep mats to implement a comprehensive sleep profile dashboard (sleep state diagrams, bed in/out statistics) of IDD individuals, thus helping caregivers tailor their assistance and receive emergency notifications.</li>
+                        <li>Increased care home safety and accessibility by developing an ML-based fall detection system using inertial sensor readings from smartwatches.</li>
                   </ul>
             </p>
       </div>
@@ -86,7 +128,7 @@ permalink: /experience
       <div class="timeline-item" date-is='September 2022- Present'>
 		<h1>Cheriton School of Computer Science, University of Waterloo</h1>
 		<h5>Master of Mathematics in Computer Science and Engineering</h5>
-            <h6>CGPA: -/4.00 </h6>
+            <h6>CGPA: 3.96/4.00 </h6>
 		<p>
                   Advisor: <a href="https://cs.uwaterloo.ca/~browndg/">Daniel G. Brown</a>
             </p>
@@ -193,7 +235,7 @@ permalink: /experience
             </p>
       </div>
 
-      <div class="timeline-item" date-is='January 2023'>
+      <div class="timeline-item" date-is='January 2023, January 2024'>
             <h1>Student Volunteer at WiCS Technovation</h1>
             <p>
                   Helped set up and guide young girls in high school and below during several Women in CS Technovation events at University of Waterloo.
@@ -259,7 +301,7 @@ permalink: /experience
                   Graph SLAM algorithm. Completed projects include Day-Night Detection, Facial keypoint detection, 
                   Object Detection, Image Captioning, Sentiment analysis and, Object Localization and Mapping.
 		</p>
-            <a target="_blank" href="https://www.linkedin.com/in/tanny411/detail/treasury/education:626286530/?entityUrn=urn%3Ali%3Afsd_profileTreasuryMedia%3A(ACoAACHSKMEBuTm6v5A0117OgBmoe7mr5a0hcaU%2C1575806049046)&section=education%3A626286530&treasuryCount=1">Certificate</a>
+            <a target="_blank" href="assets/others/CV_nanodegree.pdf">Certificate</a>
 	</div>
 	
       <div class="timeline-item" date-is='June 2019 - August 2019'>

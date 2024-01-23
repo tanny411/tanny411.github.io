@@ -6,13 +6,21 @@
 
 <img src="{{ user.avatar_url }}" class="circle mb-3" style="max-width: 200px;">
 <h1 class="display-3 {% if site.style == 'dark' %}text-white{% endif %} mb-2 lh-condensed">{% if user.name %}{{ user.name }}{% else %}{{ user.login }}{% endif %}</h1>
-<p class="mb-3 f4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
+<!-- <p class="mb-3 f4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
   {{ user.bio }}
-</p>
+</p> -->
 
+{% include social_media.html %}
+
+<div class="f4 mb-4">
+  {% if user.hireable %}
+    <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
+  {% endif %}
+</div>
+    
 {% if include.metadata %}
   <div class="f4 mb-4">
-    <a class="link-unstyled" target="_blank" href="https://drive.google.com/file/d/17c1PC4wAAEB7_KpqGiQXFMPE3VHHNy3U/view?usp=sharing">
+    <a class="link-unstyled" target="_blank" href="assets/others/resume.pdf">
       <button class="button button--pan">
         <span>Resume</span>
       </button>
@@ -27,8 +35,8 @@
           @{{ user.login }}
         </a>
       </div>
-    {% endif %}
-    {% if user.email %}
+    {% endif %} -->
+    <!-- {% if user.email %}
       <div class="{{ metadata_styles }}">
         {% octicon mail height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:email %}
         <a href="mailto:{{ user.email }}" {% if site.style == 'dark' %}class="text-white"{% endif %}>
@@ -36,13 +44,19 @@
         </a>
       </div>
     {% endif %} -->
-
     <!-- <div class="{{ metadata_styles }}">
       {% octicon file height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:resume %}
-      <a href="https://drive.google.com/file/d/1ho7YcHO2PZu6xELXnCnSlZpjvIolU5Hd/view?usp=sharing" {% if site.style == 'dark' %}class="text-white"{% endif %}>
+      <a href="" {% if site.style == 'dark' %}class="text-white"{% endif %}>
         Resume
       </a>
     </div> -->
+
+    <div class="{{ metadata_styles }}">
+      {% octicon tools height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      <a href="#skills" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
+        Skills
+      </a>
+    </div>
 
     <div class="{{ metadata_styles }}">
       {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
@@ -52,21 +66,21 @@
     </div>
 
     <div class="{{ metadata_styles }}">
-      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      {% octicon log height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
       <a href="#publications" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
         Publications
       </a>
     </div>
 
     <div class="{{ metadata_styles }}">
-      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
-      <a href="#skills" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
-        Skills
+      {% octicon device-camera-video height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      <a href="#media" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
+        Media
       </a>
     </div>
 
     <div class="{{ metadata_styles }}">
-      {% octicon briefcase height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
+      {% octicon code-square height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:experience %}
       <a href="#projects" class="fs-5 {% if site.style == 'dark' %}text-white{% else %}text-black{% endif %}">
         Projects
       </a>
@@ -86,17 +100,12 @@
       </a>
     </div>
 
-    <!-- {% if user.location %}
+    {% if user.location %}
       <div class="{{ metadata_styles }} fs-5 {% if site.style == 'dark' %}text-white{% endif %}">
         {% octicon location height:20 class:"mr-2 v-align-middle" fill:{{ icon_color }} aria-label:Location %}
-        {{ user.location }}
+        <!-- {{ user.location }} -->
+        Kitchener, Canada
       </div>
-    {% endif %} -->
-
-    {% include social_media.html %}
-    
-    {% if user.hireable %}
-      <span title="Hire me" class="d-inline-block f5 rounded-2 text-white bg-green py-1 px-2">Available for hire</span>
     {% endif %}
 
   </div>

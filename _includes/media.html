@@ -1,0 +1,10 @@
+<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Media</h2>
+<div class="d-flex flex-wrap gutter-condensed mb-4 mt-4">
+  {% for media in site.media %}
+    <div class="col-12 mb-3">
+      <a href="{{ media.web_url }}" target="_blank" class="github-component position-relative hover-grow height-full no-underline d-flex text-left border border-gray rounded-1 bg-white-light p-3">
+        <p class="f4 lh-condensed text-left link-gray-dark mb-0 mt-0 ml-3">{{ media.name }}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>

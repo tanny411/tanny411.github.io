@@ -61,13 +61,13 @@ social_media:
   # vk: your_username
   # website: http://your_website_url
   scholar: I9-4uB8AAAAJ
-  orcid: 0000-0001-6559-4493
-  youtube: UCbT2Y0Kcy882q47P_Nl0vIA
+  # orcid: 0000-0001-6559-4493
+  # youtube: UCbT2Y0Kcy882q47P_Nl0vIA
   twitter: a2khatun
   linkedin: tanny411
   github: tanny411
   codeforces: tanny411
-  lightoj: 34282
+  # lightoj: 34282
 
 topics:
   - name: Natural Language Processing
@@ -95,8 +95,12 @@ topics:
     height: 100
 
 papers:
-  - name: "<strong>Khatun, A.</strong>, & Brown, D. G. (2023). Reliability Check: An Analysis of GPT-3's Response to Sensitive Topics and Prompt Wording. Accepted at TrustNLP Workshop, ACL 2023."
-    web_url: https://arxiv.org/abs/2306.06199
+  - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). A Study on Large Language Models' Limitations in Multiple-Choice Question Answering."
+    web_url: https://arxiv.org/abs/2401.07955
+    image: ./assets/images/paper/arxiv.jpg
+
+  - name: "<strong>Aisha Khatun</strong> and Daniel G. Brown. (2023). Reliability Check: An Analysis of GPT-3’s Response to Sensitive Topics and Prompt Wording. In Proceedings of the 3rd Workshop on Trustworthy Natural Language Processing (TrustNLP 2023), pages 73–95, Toronto, Canada. Association for Computational Linguistics."
+    web_url: https://aclanthology.org/2023.trustnlp-1.8/
     image: ./assets/images/paper/acl.png
   
   - name: <strong>Khatun, A.</strong> et al. (2021) Authorship attribution in Bangla literature (AABL) via transfer learning using ulmfit, ACM Transactions on Asian and Low-Resource Language Information Processing. 
@@ -115,4 +119,9 @@ papers:
     web_url: https://ieeexplore.ieee.org/abstract/document/9038568
     image: ./assets/images/paper/ieee.png
 
+media:
+  - name: "<strong>University of Waterloo News</strong>: LLMs Validate Misinformation"
+    web_url: https://uwaterloo.ca/news/media/large-language-models-validate-misinformation-research-finds
 
+  - name: "<strong>DefenseOne</strong>: Generative AI can push misinformation"
+    web_url: https://www.defenseone.com/technology/2024/01/new-paper-shows-generative-ai-its-present-formcan-push-misinformation/393128/

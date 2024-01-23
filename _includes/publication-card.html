@@ -1,7 +1,7 @@
-<a href="{{ paper.web_url }}" class="github-component position-relative hover-grow height-full no-underline d-flex text-left border border-gray rounded-1 bg-white-light p-3">
-  <img src="{{ paper.image }}" width="64" height="64" class="rounded-1 mb-1">
-  <p class="f4 lh-condensed text-left link-gray-dark mb-0 mt-1 ml-3">{{ paper.name }}</p>
-  {% if paper.description %}
+<a href="{{ paper.web_url }}" target="_blank" class="github-component position-relative hover-grow height-full no-underline d-flex text-left border border-gray rounded-1 bg-white-light p-3">
+  <img src="{{ paper.image }}" width="40" height="40" class="rounded-1 mb-1">
+  <p class="f4 lh-condensed text-left link-gray-dark mb-0 mt-0 ml-3">{{ paper.name }}</p>
+  <!-- {% if paper.description %}
     <p class="f6 text-gray text-left mb-0 mt-1">{{ paper.description }}</p>
-  {% endif %}
+  {% endif %} -->
 </a>
