@@ -111,7 +111,7 @@ papers:
     web_url: https://arxiv.org/abs/2401.07955
     image: ./assets/images/paper/arxiv.jpg
 
-  - name: "<strong>Aisha Khatun</strong> and Daniel G. Brown. (2023). Reliability Check: An Analysis of GPT-3’s Response to Sensitive Topics and Prompt Wording. In Proceedings of the 3rd Workshop on Trustworthy Natural Language Processing (TrustNLP 2023), pages 73–95, Toronto, Canada. Association for Computational Linguistics."
+  - name: "<strong>Aisha Khatun</strong> and Daniel G. Brown. (2023). Reliability Check: An Analysis of GPT-3's Response to Sensitive Topics and Prompt Wording. In Proceedings of the 3rd Workshop on Trustworthy Natural Language Processing (TrustNLP 2023), pages 73–95, Toronto, Canada. Association for Computational Linguistics."
     web_url: https://aclanthology.org/2023.trustnlp-1.8/
     image: ./assets/images/paper/acl.png
   
@@ -132,7 +132,7 @@ papers:
     image: ./assets/images/paper/ieee.png
 
 media:
-  - name: "<strong>University of Waterloo News</strong>: Large language models validate misinformation, research finds
+  - name: "<strong>University of Waterloo News</strong>: Large language models validate misinformation, research finds"
     web_url: https://uwaterloo.ca/news/media/large-language-models-validate-misinformation-research-finds
 
   - name: "<strong>DefenseOne</strong>: How often does ChatGPT push misinformation?"
