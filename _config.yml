@@ -95,6 +95,18 @@ topics:
     height: 100
 
 papers:
+  - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). Uncovering the Reliability and Consistency of AI Language Models: A Systematic Study."
+    web_url: https://uwspace.uwaterloo.ca/items/e01e11a6-e033-4f6a-85c6-849fba74e039
+    image: ./assets/images/paper/thesis.jpg
+
+  - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). TruthEval: A Dataset to Evaluate LLM Truthfulness and Reliability."
+    web_url: https://arxiv.org/abs/2406.01855
+    image: ./assets/images/paper/arxiv.jpg
+
+  - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). Assessing Language Models' Worldview for Fiction Generation."
+    web_url: https://arxiv.org/abs/2408.07904
+    image: ./assets/images/paper/arxiv.jpg
+
   - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). A Study on Large Language Models' Limitations in Multiple-Choice Question Answering."
     web_url: https://arxiv.org/abs/2401.07955
     image: ./assets/images/paper/arxiv.jpg
@@ -120,8 +132,11 @@ papers:
     image: ./assets/images/paper/ieee.png
 
 media:
-  - name: "<strong>University of Waterloo News</strong>: LLMs Validate Misinformation"
+  - name: "<strong>University of Waterloo News</strong>: Large language models validate misinformation, research finds
     web_url: https://uwaterloo.ca/news/media/large-language-models-validate-misinformation-research-finds
 
-  - name: "<strong>DefenseOne</strong>: Generative AI can push misinformation"
-    web_url: https://www.defenseone.com/technology/2024/01/new-paper-shows-generative-ai-its-present-formcan-push-misinformation/393128/
+  - name: "<strong>DefenseOne</strong>: How often does ChatGPT push misinformation?"
+    web_url: https://www.defenseone.com/technology/2024/01/new-paper-shows-generative-ai-its-present-formcan-push-misinformation/393128/ 
+
+  - name: "<strong>eDiscoveryToday</strong>: Uncovering the Reliability and Consistency of AI Language Models"
+    web_url: https://ediscoverytoday.com/2024/08/30/uncovering-the-reliability-and-consistency-of-ai-language-models-artificial-intelligence-trends/                 

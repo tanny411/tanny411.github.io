@@ -1,72 +1,45 @@
 <h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Experience</h2>
 <p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">
-  See details, volunteer experience, and awards in the <a href="/experience">experience and education page</a>.
+  This lists the major full-time roles I had. See more details, short stints, volunteer experience, and awards in the <a href="/experience">experience and education page</a>.
 </p>
 <div class="container timeline text-left">
 
-  <div class="timeline-item" date-is='September 2022 - June 2024'>
-    <h1>Graduate Research Student <br/> University of Waterloo</h1>
-    <p>I am working with Professor Daniel G. Brown on the ability of LLMs to respond appropriately and consistently to sensitive topics with prompt variations. We analyzed over 30 models, both open and closed source,
-        and found that most models can barely understand the task at hand. They are sensitive to slight variations in prompt wording and have different responses in different settings.
-        <br>
-        <a href="https://arxiv.org/abs/2401.07955">Paper</a>. <a href="https://aclanthology.org/2023.trustnlp-1.8/" >Paper</a>.
-                  
-    </p>
-</div>
-  
-  <div class="timeline-item" date-is='February 2023 - Present'>
-    <h1>Research Data Scientist (NLP) <br/> Wikimedia Foundation</h1>
-    <p>I worked with the Research Team as a Research Data Scientist (NLP) to develop Copyediting as a structured task. We used Wiktionary to curate a list of commonly misspelled words and detected misspellings in Wikipedia articles in all languages in an automated fashion. 
-        <br>
-        <a href="https://meta.wikimedia.org/wiki/Research:Copyediting_as_a_structured_task">Meta page</a>, 
-        <a href="https://meta.wikimedia.org/wiki/Research:Copyediting_as_a_structured_task/Common_misspellings_wiktionary">Report</a>,
-        <a href="https://gitlab.wikimedia.org/repos/research/copyedit-common-misspellings">Code</a>.
-        <br>
-        Currently, I am working on addressing deployment bottlenecks and improving the Wikipedia link recommendation system accuracy by creating a language-agnostic model to replace the 300+ individual language-dependent models. 
-        <br>
-        <a href="https://meta.wikimedia.org/wiki/Research:Link_recommendation_model_for_add-a-link_structured_task">Meta page</a>, 
-        <a href="https://meta.wikimedia.org/wiki/Research:Improving_multilingual_support_for_link_recommendation_model_for_add-a-link_task">Report</a>
-        <a href="https://gitlab.wikimedia.org/akhatun/research-mwaddlink">Code</a>.
+  <div class="timeline-item" date-is='December 2025 - Present'>
+    <h1>Data Engineer III <br/> Wikimedia Foundation</h1>
+    <p>
+      Managing and building ETL pipelines for various analytical use-cases across the foundation, deriving metrics for the community, helping assess the health of the foundation.
+      Monitoring system health as part of Ops-Week, contributing to data governance and privacy initiatives. Modernizing the platform for streaming and batch processes. There is always 
+      something to improve, there is always new use-cases to build. Fun!
     </p>
   </div>
 
-  <div class="timeline-item" date-is='April 2021 - Present'>
-      <h1>Data Analyst <br/> Wikimedia Foundation</h1>
-      <p>
-        As a Data analyst, I worked with the Search and Analytics team to help scale the Wikidata query service.
-        We performed data analysis on Wikidata dumps and combined it with user's SPARQL query analysis to identify the most frequently queried Wikidata subgraphs. 
-        This helped inform decisions to split Wikidata to handle the ever-increasing size of the graph (<a href="https://phabricator.wikimedia.org/T337013">Ticket</a>).
-        <br>
-        Analysis work: <a href="https://wikitech.wikimedia.org/w/index.php?title=User:AKhatun#Subpages">wikitech/User:AKhatun</a>.
-      </p>
-
+  <div class="timeline-item" date-is='December 2024 - December 2025'>
+    <h1>Software Dev Engineer I <br/> Amazon Web Services</h1>
+    <p>
+      Worked on highly durable, available, scalable distributed write ahead log system for AWS. Was responsible for end-to-end service development, 
+      improvement, deployment, and on-call rotations. Launched features to automatically manage high volume customers which included writing design
+      docs, developing durable, low-latency APIs while ensuring smooth customer experience.                  
+    </p>
   </div>
 
-  <div class="timeline-item" date-is='December 2020 - February 2021'>
-      <h1>Outreachy Intern<br/> Wikimedia Foundation</h1>
-      <p>
-        Selected as an Intern in Outreachy to work with the Abstract Wikipedia project under Wikimedia Foundation. 
-        Performed data analysis and source code similarity analysis using unsupervised machine learning to identify important modules for centralization in Abstract Wikipedia.
-        <br>
-        See more in <a href="https://meta.wikimedia.org/wiki/Abstract_Wikipedia/Data">Abstract_Wikipedia/Data</a><br>
-      </p>
+  <div class="timeline-item" date-is='April 2021 - August 2022'>
+    <h1>Data Analyst <br/> Wikimedia Foundation</h1>
+    <p>
+      As a Data analyst, I worked with the Search and Analytics team to help scale the Wikidata query service.
+      Performed data analysis on Wikidata dumps and combined it with user's SPARQL query analysis to identify the most frequently queried Wikidata subgraphs. 
+      This helped inform decisions to split Wikidata to handle the ever-increasing size of the graph (<a href="https://phabricator.wikimedia.org/T337013">Ticket</a>).
+      <br>
+      Analysis work: <a href="https://wikitech.wikimedia.org/w/index.php?title=User:AKhatun#Subpages">wikitech/User:AKhatun</a>.
+    </p>
   </div>
 
   <div class="timeline-item" date-is='March 2020 - September 2020'>
-      <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
-      <p>
-        Performed data analysis and applied machine learning algorithms on computer vision and time-series data for pattern recognition and prediction generation.
-        Used state-of-art face detection models, OCRs, and sensor readings for fall detection. Analysed sleep patterns
-        from sleep-mats to identify abnormal activities at night, and analysed server logs to identify ideal downtime for application release.
-      </p>
-  </div>
-
-  <div class="timeline-item" date-is='November 2018 - June 2020'>
-      <h1>Research Assistant <br/> SUST NLP Lab</h1>
-      <p>Worked on developing large datasets and implementing transfer learning based deep learning approaches for Authorship Attribution in Bengali Literature, thus far surpassing the existing systems. 
-        Work available in <a href="https://github.com/tanny411/Authorship-Attribution-using-Transfer-Learning/">GitHub</a>. 
-        Datasets available in <a href="https://data.mendeley.com/datasets/6d9jrkgtvv/4">Mendeley</a>.
-      </p>
+    <h1>Machine Learning Engineer <br/> Therap BD Ltd.</h1>
+    <p>
+      Performed data analysis and applied machine learning algorithms on computer vision and time-series data for pattern recognition and prediction generation.
+      Used state-of-art face detection models, OCRs, and sensor readings for fall detection. Analysed sleep patterns
+      from sleep-mats to identify abnormal activities at night, and analysed server logs to identify ideal downtime for application release.
+    </p>
   </div>
 
 </div>
