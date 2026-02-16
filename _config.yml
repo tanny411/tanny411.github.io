@@ -97,7 +97,7 @@ topics:
 papers:
   - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). Uncovering the Reliability and Consistency of AI Language Models: A Systematic Study."
     web_url: https://uwspace.uwaterloo.ca/items/e01e11a6-e033-4f6a-85c6-849fba74e039
-    image: ./assets/images/paper/thesis.jpg
+    image: ./assets/images/paper/uwaterloo.png
 
   - name: "<strong>Aisha Khatun</strong> & Daniel G. Brown. (2024). TruthEval: A Dataset to Evaluate LLM Truthfulness and Reliability."
     web_url: https://arxiv.org/abs/2406.01855
